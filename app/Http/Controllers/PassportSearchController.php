@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PDFToSQLite;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class PassportSearchController extends Controller
 {
@@ -11,7 +13,14 @@ class PassportSearchController extends Controller
      */
     public function index()
     {
-        //
+
+
+        return Inertia::render('Passport/Index');
+
+        // return Inertia::render('Profile/Edit', [
+        //     'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
+        //     'status' => session('status'),
+        // ]);
     }
 
     /**
@@ -33,9 +42,19 @@ class PassportSearchController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request)
     {
-        //
+        $search = $request->input('applicationNumber');
+        $passports = PDFToSQLite::where('applicationNumber', 'LIKE', '%' . $search . '%')->get();
+
+
+        return Inertia::render(
+            'Passport/Show',
+            [
+                'passports' => $passports,
+                'search' => $search,
+            ]
+        );
     }
 
     /**

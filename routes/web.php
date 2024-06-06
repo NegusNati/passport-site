@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PassportSearchController;
 use App\Http\Controllers\PDFToSQLiteController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -20,6 +21,18 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/passport', [PassportSearchController::class, 'index'])->name('passport.index');
+    Route::post('/passport', [PassportSearchController::class, 'show'])->name('passport.show');
+
+
+    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
