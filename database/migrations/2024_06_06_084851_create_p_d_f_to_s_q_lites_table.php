@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('firstName');
             $table->string('middleName');
             $table->string('lastName');
-            $table->string('applicationNumber')->unique();
+            $table->string('requestNumber')->unique();
             $table->date('dateOfPublish');
             $table->timestamps();
         });

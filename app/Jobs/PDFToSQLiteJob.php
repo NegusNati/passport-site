@@ -20,6 +20,7 @@ class PDFToSQLiteJob implements ShouldQueue
     private $filePath;
     private $records;
     private $date;
+    private $linesToSkip;
 
     /**
      * Create a new job instance.
@@ -27,10 +28,11 @@ class PDFToSQLiteJob implements ShouldQueue
      * @param string $pdfPath
      * @return void
      */
-    public function __construct($filePath , $date)
+    public function __construct($filePath , $date, $linesToSkip)
     {
         $this->filePath = $filePath;
         $this->date = $date;
+        $this->linesToSkip = $linesToSkip;
     }
 
     /**
@@ -61,16 +63,17 @@ class PDFToSQLiteJob implements ShouldQueue
                 $i++;
 
 
-                if ($i > 2) {  // Skip the first two lines
-                    [$numberId, $firstName, $middleName, $lastName, $applicationNumber] = explode(" ", trim($line), 5);
-                    if (!empty($numberId) && !empty($firstName) && !empty($middleName) && !empty($lastName) && !empty($applicationNumber)) {
+                if ($i > $this->linesToSkip) {  // Skip the first two lines
+                    [$numberId, $firstName, $middleName, $lastName, $requestNumber] = explode(" ", trim($line), 5);
+                    if (!empty($numberId) && !empty($firstName) && !empty($middleName) && !empty($lastName) && !empty($requestNumber)) {
                         $id = $numberId;
                         $firstName = $firstName;
                         $middleName = $middleName;
                         $lastName = $lastName;
-                        $applicationNumber = $applicationNumber;
+                        $requestNumber = $requestNumber;
                         $dateOfPublish = $this->date; // Assuming all records have the same publish date
-                        $records[] = compact('id', 'firstName', 'middleName', 'lastName', 'applicationNumber', 'dateOfPublish');
+                        $createdAt = now();
+                        $records[] = compact('id', 'firstName', 'middleName', 'lastName', 'requestNumber', 'dateOfPublish', 'createdAt');
                     } else {
                         Log::warning('Skipping line due to missing data: ' . $line);
                     }

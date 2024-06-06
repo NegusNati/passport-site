@@ -44,17 +44,54 @@ class PassportSearchController extends Controller
      */
     public function show(Request $request)
     {
-        $search = $request->input('applicationNumber');
-        $passports = PDFToSQLite::where('applicationNumber', 'LIKE', '%' . $search . '%')->get();
 
+        $query = PDFToSQLite::query(); // Start with a base query
+
+        $requestNumber = $request->input('requestNumber');
+        $firstName = $request->input('firstName');
+        $middleName = $request->input('middleName');
+        $lastName = $request->input('lastName');
+
+        // Dynamically add conditions based on the presence of input values
+        if (!empty($requestNumber)) {
+            $query->where('requestNumber', 'LIKE', '%'. $requestNumber. '%');
+        }
+        if (!empty($firstName)) {
+            $query->orWhere('firstName', 'LIKE', '%'. $firstName. '%');
+        }
+        if (!empty($middleName)) {
+            $query->orWhere('middleName', 'LIKE', '%'. $middleName. '%');
+        }
+        if (!empty($lastName)) {
+            $query->orWhere('lastName', 'LIKE', '%'. $lastName. '%');
+        }
+
+        $passports = $query->get(); // Execute the query
+
+            // dd($passports);
 
         return Inertia::render(
             'Passport/Show',
             [
                 'passports' => $passports,
-                'search' => $search,
+                'search' => $request->all(), // Pass all search parameters back to the view
             ]
         );
+
+
+        // $search = $request->input('applicationNumber');
+        // $passports = PDFToSQLite::where('applicationNumber', 'LIKE', '%' . $search . '%')->get();
+
+
+
+
+        // return Inertia::render(
+        //     'Passport/Show',
+        //     [
+        //         'passports' => $passports,
+        //         'search' => $search,
+        //     ]
+        // );
     }
 
     /**
