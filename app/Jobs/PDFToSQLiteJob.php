@@ -19,6 +19,7 @@ class PDFToSQLiteJob implements ShouldQueue
 
     private $filePath;
     private $records;
+    private $date;
 
     /**
      * Create a new job instance.
@@ -26,9 +27,10 @@ class PDFToSQLiteJob implements ShouldQueue
      * @param string $pdfPath
      * @return void
      */
-    public function __construct($filePath)
+    public function __construct($filePath , $date)
     {
         $this->filePath = $filePath;
+        $this->date = $date;
     }
 
     /**
@@ -40,8 +42,6 @@ class PDFToSQLiteJob implements ShouldQueue
     {
         try {
             Log::info("In Dispatch");
-
-            set_time_limit(300);
             $parser = new Parser();
             // $pdf = $parser->parseFile('C:\Users\natna\Documents\genbot_28.pdf');
             $pdf = $parser->parseFile($this->filePath);
@@ -59,7 +59,9 @@ class PDFToSQLiteJob implements ShouldQueue
         foreach (explode("\n", $text) as $line) {
             if (!empty($line)) { // Skip empty lines
                 $i++;
-                if ($i > 2) { // Skip the first two lines
+
+
+                if ($i > 2) {  // Skip the first two lines
                     [$numberId, $firstName, $middleName, $lastName, $applicationNumber] = explode(" ", trim($line), 5);
                     if (!empty($numberId) && !empty($firstName) && !empty($middleName) && !empty($lastName) && !empty($applicationNumber)) {
                         $id = $numberId;
@@ -67,7 +69,7 @@ class PDFToSQLiteJob implements ShouldQueue
                         $middleName = $middleName;
                         $lastName = $lastName;
                         $applicationNumber = $applicationNumber;
-                        $dateOfPublish = "04. JUN. 2024"; // Assuming all records have the same publish date
+                        $dateOfPublish = $this->date; // Assuming all records have the same publish date
                         $records[] = compact('id', 'firstName', 'middleName', 'lastName', 'applicationNumber', 'dateOfPublish');
                     } else {
                         Log::warning('Skipping line due to missing data: ' . $line);
@@ -76,7 +78,6 @@ class PDFToSQLiteJob implements ShouldQueue
             }
         }
         Log::info("Before the insert");
-
         $resp = DB::table('p_d_f_to_s_q_lites')->insert($records);
         Log::info("After the insert");
     }

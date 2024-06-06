@@ -23,6 +23,12 @@
                                     <label for="pdf_file" class="text-lg font-bold">Upload PDF</label>
                                     <input type="file" name="pdf_file" id="pdf_file" class="w-full h-full">
                                 </div>
+                                <div class="flex flex-col items-center justify-center w-full h-full">
+                                    <label for="date" class="text-lg font-bold">Published Date</label>
+                                    <input type="date" name="date" id="date" class="w-full h-full">
+
+                                </div>
+
 
                                 <div class="flex flex-col items-center justify-center w-full h-full">
                                     <button type="submit"

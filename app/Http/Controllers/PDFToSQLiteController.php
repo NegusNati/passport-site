@@ -16,13 +16,14 @@ class PDFToSQLiteController extends Controller
 
         $request->validate([
             'pdf_file' => 'required|file|mimes:pdf',
+            'date' => 'required|date',
         ]);
 
         $path = $request->pdf_file->store('pdfs');
         $filePath = storage_path('app/public/pdfs/' . basename($path));
         Log::info("Attempting to read file path: {$filePath}");
         // PDFToSQLiteJob::dispatch($filePath);
-        dispatch(new PDFToSQLiteJob($filePath));
+        dispatch(new PDFToSQLiteJob($filePath , $request->date));
         Log::info("After the dispatch");
         return response()->json(['status' => 'success']);
 
