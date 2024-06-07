@@ -28,7 +28,7 @@ class PDFToSQLiteJob implements ShouldQueue
      * @param string $pdfPath
      * @return void
      */
-    public function __construct($filePath , $date, $linesToSkip)
+    public function __construct($filePath, $date, $linesToSkip)
     {
         $this->filePath = $filePath;
         $this->date = $date;
@@ -56,32 +56,91 @@ class PDFToSQLiteJob implements ShouldQueue
         }
         Log::info("passed the location check");
 
+        // $records = [];
+        // $i = 0;
+        // foreach (explode("\n", $text) as $line) {
+        //     if (!empty($line)) { // Skip empty lines
+        //         $i++;
+
+
+        //         if ($i > $this->linesToSkip) {  // Skip the first two lines
+        //             [$numberId, $firstName, $middleName, $lastName, $requestNumber] = explode(" ", trim($line), 5);
+        //             if (!empty($numberId) && !empty($firstName) && !empty($middleName) && !empty($lastName) && !empty($requestNumber)) {
+        //                 $id = $numberId;
+        //                 $firstName = $firstName;
+        //                 $middleName = $middleName;
+        //                 $lastName = $lastName;
+        //                 $requestNumber = $requestNumber;
+        //                 $dateOfPublish = $this->date; // Assuming all records have the same publish date
+        //                 $created_at = now();
+        //                 $records[] = compact('id', 'firstName', 'middleName', 'lastName', 'requestNumber', 'dateOfPublish', 'created_at');
+        //             } else {
+        //                 Log::warning('Skipping line due to missing data: ' . $line);
+        //             }
+        //         }
+        //     }
+        // }
+
         $records = [];
         $i = 0;
-        foreach (explode("\n", $text) as $line) {
-            if (!empty($line)) { // Skip empty lines
-                $i++;
+        $linesToSkip = 2;
 
+        $keyword = "REQUEST_No"; // or any other keyword that marks the start of the data
+        $lines = explode("\n", $text);
+        $startParsing = false;
 
-                if ($i > $this->linesToSkip) {  // Skip the first two lines
-                    [$numberId, $firstName, $middleName, $lastName, $requestNumber] = explode(" ", trim($line), 5);
-                    if (!empty($numberId) && !empty($firstName) && !empty($middleName) && !empty($lastName) && !empty($requestNumber)) {
-                        $id = $numberId;
-                        $firstName = $firstName;
-                        $middleName = $middleName;
-                        $lastName = $lastName;
-                        $requestNumber = $requestNumber;
-                        $dateOfPublish = $this->date; // Assuming all records have the same publish date
-                        $createdAt = now();
-                        $records[] = compact('id', 'firstName', 'middleName', 'lastName', 'requestNumber', 'dateOfPublish', 'createdAt');
-                    } else {
-                        Log::warning('Skipping line due to missing data: ' . $line);
+        foreach ($lines as $line) {
+            if (!$startParsing) {
+                if (strpos($line, $keyword) !== false) {
+                    $startParsing = true;
+                }
+            } else {
+                // parse the line as data
+                $values = explode(" ", trim($line));
+                $record = [
+                    'id' => null,
+                    'firstName' => null,
+                    'middleName' => null,
+                    'lastName' => null,
+                    'requestNumber' => null,
+                    'dateOfPublish' => $this->date,
+                    'created_at' => now(),
+                ];
+
+                foreach ($values as $index => $value) {
+                    switch ($index) {
+                        case 0:
+                            $record['id'] = $value;
+                            break;
+                        case 1:
+                            $record['firstName'] = $value;
+                            break;
+                        case 2:
+                            $record['middleName'] = $value;
+                            break;
+                        case 3:
+                            $record['lastName'] = $value;
+                            break;
+                        case 4:
+                            $record['requestNumber'] = $value;
+                            break;
                     }
                 }
+
+                $records[] = $record;
             }
         }
+
+
+
         Log::info("Before the insert");
-        $resp = DB::table('p_d_f_to_s_q_lites')->insert($records);
+        // $resp = DB::table('p_d_f_to_s_q_lites')->insert($records);
+
+        $chunks = array_chunk($records, 20); // split the data into chunks of 20 rows each
+
+        foreach ($chunks as $chunk) {
+            DB::table('p_d_f_to_s_q_lites')->insert($chunk);
+        }
         Log::info("After the insert");
     }
 }

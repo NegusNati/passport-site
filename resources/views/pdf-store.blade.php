@@ -1,4 +1,4 @@
-<html>
+{{-- <html>
 
 <head>
 
@@ -47,4 +47,22 @@
 </div>
 </body>
 
-</html>
+</html> --}}
+
+<x-layout>
+
+    <div class="pb-25 pt-10">
+        <x-header >Publish PDF To SQLite DB </x-header>
+        <x-forms.form action="/pdf-to-sqlite" method="POST" enctype="multipart/form-data" class="mt-6">
+
+            <x-forms.input name="pdf_file" id="pdf_file" label="Upload PDF" type="file" />
+            <x-forms.input name="date" label="Published Date" type="date" />
+            <x-forms.input name="linesToSkip"  label="Lines To Skip" type="number" placeholder="2" />
+
+            <x-forms.button>Publish PDF To SQLite</x-forms.button>
+
+        </x-forms.form>
+
+
+    </div>
+</x-layout>
