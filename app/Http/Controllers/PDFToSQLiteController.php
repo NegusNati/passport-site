@@ -6,6 +6,8 @@ use App\Jobs\PDFToSQLiteJob;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redirect;
+use Inertia\Inertia;
 use Smalot\PdfParser\Parser;
 
 class PDFToSQLiteController extends Controller
@@ -26,23 +28,9 @@ class PDFToSQLiteController extends Controller
         // PDFToSQLiteJob::dispatch($filePath);
         dispatch(new PDFToSQLiteJob($filePath , $request->date, $request->linesToSkip));
         Log::info("After the dispatch");
-        return response()->json(['status' => 'success']);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        return Redirect::to('/');
 
 
         // $request->validate([
