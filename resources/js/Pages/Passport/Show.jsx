@@ -1,4 +1,5 @@
 import Authenticated from "@/Layouts/AuthenticatedLayout";
+import { Head, Link, useForm } from "@inertiajs/react";
 
 function Show({ auth, passports, search }) {
     const { requestNumber, firstName, middleName, lastName } = search;
