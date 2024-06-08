@@ -59,13 +59,12 @@ class PDFToSQLiteJob implements ShouldQueue
         }
         Log::info("passed the location check");
 
+
         // $records = [];
         // $i = 0;
         // foreach (explode("\n", $text) as $line) {
         //     if (!empty($line)) { // Skip empty lines
         //         $i++;
-
-
         //         if ($i > $this->linesToSkip) {  // Skip the first two lines
         //             [$numberId, $firstName, $middleName, $lastName, $requestNumber] = explode(" ", trim($line), 5);
         //             if (!empty($numberId) && !empty($firstName) && !empty($middleName) && !empty($lastName) && !empty($requestNumber)) {
@@ -83,6 +82,7 @@ class PDFToSQLiteJob implements ShouldQueue
         //         }
         //     }
         // }
+        
 
         $records = [];
         $i = 0;
@@ -133,11 +133,11 @@ class PDFToSQLiteJob implements ShouldQueue
                             break;
                         default:
                             // Set remaining values to an empty string or a default value
-                            $record['no'] = $record['no'] ?? '';
-                            $record['firstName'] = $record['firstName'] ?? '';
-                            $record['middleName'] = $record['middleName'] ?? '';
-                            $record['lastName'] = $record['lastName'] ?? '';
-                            $record['requestNumber'] = $record['requestNumber'] ?? '';
+                            $record['no'] = $record['no'] ?? ' ';
+                            $record['firstName'] = $record['firstName'] ?? ' ';
+                            $record['middleName'] = $record['middleName'] ?? ' ';
+                            $record['lastName'] = $record['lastName'] ?? ' ';
+                            $record['requestNumber'] = $record['requestNumber'] ?? ' ';
                             break;
                     }
                 }
@@ -156,5 +156,6 @@ class PDFToSQLiteJob implements ShouldQueue
             DB::table('p_d_f_to_s_q_lites')->insertOrIgnore($chunk);
         }
         Log::info("After the insert");
+
     }
 }
