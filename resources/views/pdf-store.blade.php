@@ -57,7 +57,7 @@
 
             <x-forms.input name="pdf_file" id="pdf_file" label="Upload PDF" type="file" />
             <x-forms.input name="date" label="Published Date" type="date" />
-            <x-forms.input name="linesToSkip"  label="Lines To Skip" type="number" placeholder="2" />
+            <x-forms.input name="linesToSkip"  label="Word To Skip After"  placeholder="Request No" />
 
             <x-forms.button>Publish PDF To SQLite</x-forms.button>
 

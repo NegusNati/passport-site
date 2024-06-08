@@ -9,5 +9,7 @@ class PDFToSQLite extends Model
 {
     use HasFactory;
 
+    protected $table = 'p_d_f_to_s_q_lites';
+
     protected $guarded = [];
 }

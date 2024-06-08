@@ -42,6 +42,9 @@ class PDFToSQLiteJob implements ShouldQueue
      */
     public function handle()
     {
+
+
+
         try {
             Log::info("In Dispatch");
             $parser = new Parser();
@@ -85,7 +88,7 @@ class PDFToSQLiteJob implements ShouldQueue
         $i = 0;
         $linesToSkip = 2;
 
-        $keyword = "REQUEST_No"; // or any other keyword that marks the start of the data
+        $keyword = $linesToSkip; // or any other keyword that marks the start of the data
         $lines = explode("\n", $text);
         $startParsing = false;
 
@@ -98,7 +101,7 @@ class PDFToSQLiteJob implements ShouldQueue
                 // parse the line as data
                 $values = explode(" ", trim($line));
                 $record = [
-                    'id' => null,
+                    'no' => null,
                     'firstName' => null,
                     'middleName' => null,
                     'lastName' => null,
@@ -109,20 +112,32 @@ class PDFToSQLiteJob implements ShouldQueue
 
                 foreach ($values as $index => $value) {
                     switch ($index) {
-                        case 0:
-                            $record['id'] = $value;
-                            break;
-                        case 1:
-                            $record['firstName'] = $value;
-                            break;
+                        case 0: {
+
+                                $record['no'] = trim($value) ?? ' ';
+                                break;
+                            }
+                        case 1: {
+
+                                $record['firstName'] = trim($value)  ?? ' ';
+                                break;
+                            }
                         case 2:
-                            $record['middleName'] = $value;
+                            $record['middleName'] = trim($value)  ?? ' ';
                             break;
                         case 3:
-                            $record['lastName'] = $value;
+                            $record['lastName'] = trim($value) ?? ' ';
                             break;
                         case 4:
-                            $record['requestNumber'] = $value;
+                            $record['requestNumber'] = trim($value);
+                            break;
+                        default:
+                            // Set remaining values to an empty string or a default value
+                            $record['no'] = $record['no'] ?? '';
+                            $record['firstName'] = $record['firstName'] ?? '';
+                            $record['middleName'] = $record['middleName'] ?? '';
+                            $record['lastName'] = $record['lastName'] ?? '';
+                            $record['requestNumber'] = $record['requestNumber'] ?? '';
                             break;
                     }
                 }
@@ -137,9 +152,8 @@ class PDFToSQLiteJob implements ShouldQueue
         // $resp = DB::table('p_d_f_to_s_q_lites')->insert($records);
 
         $chunks = array_chunk($records, 20); // split the data into chunks of 20 rows each
-
         foreach ($chunks as $chunk) {
-            DB::table('p_d_f_to_s_q_lites')->insert($chunk);
+            DB::table('p_d_f_to_s_q_lites')->insertOrIgnore($chunk);
         }
         Log::info("After the insert");
     }

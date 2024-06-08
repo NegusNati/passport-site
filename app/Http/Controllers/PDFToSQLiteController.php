@@ -17,7 +17,7 @@ class PDFToSQLiteController extends Controller
         $request->validate([
             'pdf_file' => 'required|file|mimes:pdf',
             'date' => 'required|date',
-            'linesToSkip' => 'required|integer|min:0|max:10',
+            'linesToSkip' => 'required',
         ]);
 
         $path = $request->pdf_file->store('pdfs');

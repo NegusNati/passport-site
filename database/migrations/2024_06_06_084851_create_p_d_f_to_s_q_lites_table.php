@@ -12,10 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('p_d_f_to_s_q_lites', function (Blueprint $table) {
-            $table->id();
-            $table->string('firstName');
-            $table->string('middleName');
-            $table->string('lastName');
+            $table->id()->autoIncrement();
+            $table->integer('no')->nullable();
+            $table->string('firstName')->nullable();
+            $table->string('middleName')->nullable();
+            $table->string('lastName')->nullable();
             $table->string('requestNumber')->unique();
             $table->date('dateOfPublish');
             $table->timestamps();
