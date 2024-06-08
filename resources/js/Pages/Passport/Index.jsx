@@ -31,17 +31,25 @@ function Index({ auth }) {
             user={auth.user}
             header={
                 <h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                    Dashboard
+                    Is Your Passport Ready? Let's find out!
                 </h2>
             }
         >
-            <Head title="Register" />
+            <Head title="Find Passport" />
 
+            <div className="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
+                <img
+                    id="background"
+                    className="absolute -left-20 top-0 max-w-[877px]"
+                    src="https://laravel.com/assets/img/welcome/background.svg"
+                />
+                <div className="relative min-h-screen flex flex-col  selection:bg-[#FF2D20] selection:text-white">
             <form
                 onSubmit={submit}
-                className="py-12   sm:px-6 lg:px-8 bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg"
+                className="py-12   sm:px-6 lg:px-8 bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg font-semibold text-black/50 dark:text-white/50"
             >
-                <div>
+                <div  className="flex flex-col items-start gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] md:row-span-3 lg:p-10 lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]"
+>
                     <InputLabel
                         htmlFor="requestNumber"
                         value="Request Number"
@@ -69,7 +77,8 @@ function Index({ auth }) {
                         <div className=" mt-4">
                            <p>Or Find By Name</p>
                         </div>
-                <div>
+                <div  className="flex flex-col items-start gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] md:row-span-3 lg:p-10 lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]"
+>
                     <div className="mt-4">
                         <InputLabel htmlFor="firstName" value="First Name" />
 
@@ -140,6 +149,8 @@ function Index({ auth }) {
                     </PrimaryButton>
                 </div>
             </form>
+            </div>
+            </div>
         </Authenticated>
     );
 }

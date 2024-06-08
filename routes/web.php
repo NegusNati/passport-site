@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/passport', [PassportSearchController::class, 'index'])->name('passport.index');
+    Route::get('/passport', [PassportSearchController::class, 'index'])->name('passport');
     Route::post('/passport', [PassportSearchController::class, 'show'])->name('passport.show');
 
 
