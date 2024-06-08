@@ -25,14 +25,11 @@ function Show({ auth, passports, search }) {
         >
               <Head title="Results" />
 
-            <div className="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
-                <img
-                    id="background"
-                    className="absolute -left-20 top-0 max-w-[877px]"
-                    src="https://laravel.com/assets/img/welcome/background.svg"
-                />
-                <div className="relative min-h-screen flex flex-col  selection:bg-[#FF2D20] selection:text-white">
-            <main className="mt-8 max-w-[990px] m-auto">
+
+
+
+
+            <main className="mt-8 max-w-[990px] m-auto selection:bg-[#FF2D20] selection:text-white">
                 {passports.length > 0 &&
                     passports.map((passport) => (
                         <div
@@ -40,22 +37,22 @@ function Show({ auth, passports, search }) {
 
                             key={passport.id}
                         >
-                            <div class="flex items-center"></div>
-                            <div class="px-4 w-full ">
-                                <div class=" space-y-2 pb-2  flex space-x-2 justify-around py-4">
+                            <div className="flex items-center"></div>
+                            <div className="px-4 w-full ">
+                                <div className=" space-y-2 pb-2  flex space-x-2 justify-around py-4">
                                     <div className="space-y-2 ">
-                                        <p class="text-xs capitalize ">
+                                        <p className="text-xs capitalize ">
                                             First Name :     <strong>{passport.firstName}</strong>
                                         </p>
-                                        <p class="text-xs capitalize ">
+                                        <p className="text-xs capitalize ">
                                             Middle Name : <strong>{passport.middleName}</strong>
                                         </p>
-                                        <p class="text-xs capitalize ">
+                                        <p className="text-xs capitalize ">
                                             Last Name : <strong>{passport.lastName}</strong>
                                         </p>
                                     </div>
                                     <div className=" ">
-                                        <p class="text-xs capitalize ">
+                                        <p className="text-xs capitalize ">
                                         Request Number :  <strong>{passport.requestNumber}</strong>
                                         </p>
                                         <p class="text-xs capitalize ">
@@ -73,8 +70,7 @@ function Show({ auth, passports, search }) {
                         </div>
                     ))}
             </main>
-            </div>
-            </div>
+
         </Authenticated>
     );
 }
