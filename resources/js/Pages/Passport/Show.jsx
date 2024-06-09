@@ -29,7 +29,7 @@ function Show({ auth, passports, search }) {
 
 
 
-            <main className="mt-8 max-w-[990px] m-auto selection:bg-[#FF2D20] selection:text-white">
+            <main className="mt-8 max-w-[990px] m-auto selection:bg-[#FF2D20] selection:text-white ">
                 {passports.length > 0 &&
                     passports.map((passport) => (
                         <div

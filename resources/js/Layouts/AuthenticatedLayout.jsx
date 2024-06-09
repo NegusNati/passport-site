@@ -10,7 +10,7 @@ export default function Authenticated({ user, header, children }) {
         useState(false);
 
     return (
-        <div className="min-h-screen  bg-gray-100 dark:bg-gray-900 pb-20  m-auto">
+        <div className="min-h-screen  bg-gray-100 dark:bg-gray-900  m-auto bg-gradient-to-r from-rose-100 to-teal-100">
             <nav className="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
@@ -170,8 +170,8 @@ export default function Authenticated({ user, header, children }) {
             )}
 
             <main>{children}</main>
-            <footer className="bg-transparent w-full sm:pt-6 lg:px-8">
-                <div className="mx-auto max-w-screen-xl px-4 pb-8 pt-16 sm:px-6 lg:px-8 lg:pt-24">
+            <footer className="bg-transparent w-full sm:pt-6 lg:px-8 mt-10">
+                <div className="mx-auto max-w-screen-xl px-4 pb-4 pt-16 sm:px-6 lg:px-8 lg:pt-24">
                     <div className="text-center">
                         {/* <h2 className="text-3xl font-extrabold text-gray-900 sm:text-5xl">
                                 Customise Your Product
@@ -337,7 +337,7 @@ export default function Authenticated({ user, header, children }) {
                             </li>
                         </ul>
                     </div>
-                    <div className="mt-8 text-sm text-gray-500 dark:text-gray-400 text-center"> 
+                    <div className="mt-8 text-sm text-gray-500 dark:text-gray-400 text-center">
                         &copy;
                         {new Date().getFullYear()} Negus Nati. All rights
                             reserved.

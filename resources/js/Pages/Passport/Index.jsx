@@ -147,6 +147,7 @@ function Index({ auth }) {
                     </div>
                 </form>
             </main>
+
         </Authenticated>
     );
 }
