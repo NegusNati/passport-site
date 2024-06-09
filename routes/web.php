@@ -4,6 +4,7 @@ use App\Http\Controllers\PassportSearchController;
 use App\Http\Controllers\PDFToSQLiteController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -46,13 +47,17 @@ Route::middleware('auth')->group(function () {
 
 
 // The route that the button calls to initialize payment
-Route::get('/payment', function (){
-    return Inertia::render('Payment');
-    // return view('payment');
-});
+Route::get('/payment', function () {
+
+
+    return Inertia::render('Payment', [
+        'amount' => request()->amount,
+    ]);
+
+})->name('payment');
 // The route that the button calls to initialize payment
 
-Route::post('pay', 'App\Http\Controllers\ChapaController@initialize')->name('pay');
+Route::post('/pay', 'App\Http\Controllers\ChapaController@initialize')->name('pay');
 
 // The callback url after a payment
 Route::get('callback/{reference}', 'App\Http\Controllers\ChapaController@callback')->name('callback');

@@ -31,10 +31,10 @@ class ChapaController extends Controller
         ]);
 
 
-        
 
 
-        dd($request->all());
+
+        // dd($request->all());
 
         // Enter the details of the payment
         $data = [
@@ -59,13 +59,14 @@ class ChapaController extends Controller
         // dd($data);
         $payment = Chapa::initializePayment($data);
         //now Check if the payment returns 'success' or 'fail'
-        // dd($payment);
+          dd($payment);
+
         if ($payment['status'] !== 'success') {
             // notify something went wrong
             dd($payment->errorMessage);
             return;
         }
-
+        // dd($payment);
 
         //if payment is successful
         return redirect($payment['data']['checkout_url']);
@@ -82,7 +83,7 @@ class ChapaController extends Controller
         dd($data);
 
         //if payment is successful
-        if ($data['status'] ==  'success') {
+        if ($data['status'] ==  '   ') {
 
 
             dd($data);

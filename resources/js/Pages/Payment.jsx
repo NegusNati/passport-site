@@ -1,6 +1,6 @@
 import TextInput from "@/Components/TextInput";
 import React, { useState } from "react";
-import { Head, Link, useForm } from "@inertiajs/react";
+import { Head, Link, useForm,usePage  } from "@inertiajs/react";
 import GuestLayout from "@/Layouts/GuestLayout";
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
@@ -11,25 +11,20 @@ function Payment() {
     // const [lastName, setLastName] = useState("");
     // const [phoneNumber, setPhoneNumber] = useState("");
     // const [amount, setAmount] = useState(20);
+    const { props } = usePage();
+    const { amount } = props;
 
     const { data, setData, post, processing, errors, reset } = useForm({
         firstName: "",
         lastName: "",
         phoneNumber: "",
-        amount: 20,
+        amount: amount,
     });
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Call API or perform payment logic here
-        // console.log("Payment submitted:", {
-        //     firstName,
-        //     lastName,
-        //     phoneNumber,
-        //     amount,
-        // });
 
-        post(route("pay"));
+        post(route('pay'));
     };
 
     return (
@@ -39,7 +34,7 @@ function Payment() {
                     <h2 className="text-2xl font-bold mb-4 text-center uppercase pb-4  ">
                         Payment Information
                     </h2>
-                    <form onSubmit={handleSubmit} className="space-y-4">
+                    <form  onSubmit={handleSubmit} className="space-y-4">
                         {/* <label
                             htmlFor="firstName"
                             className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
