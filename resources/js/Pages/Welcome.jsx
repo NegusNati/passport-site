@@ -174,7 +174,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                             </strong>
 
                                             <span className="text-sm font-medium text-gray-700 capitalize">
-                                                for 3 months
+                                                for a Full month
                                             </span>
                                         </p>
                                     </div>
@@ -338,7 +338,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                             </strong>
 
                                             <span className="text-sm font-medium text-gray-700">
-                                                for a Week
+                                                for 24 Hours
                                             </span>
                                         </p>
                                     </div>

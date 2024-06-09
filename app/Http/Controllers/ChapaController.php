@@ -24,14 +24,14 @@ class ChapaController extends Controller
 
 
         $request->validate([
-            'amount' => 'required|numeric',
-            'firstName' => 'required',
-            'lastName' => 'required',
+            'amount' => 'required|numeric|min:10',
+            'firstName' => 'required|alpha:ascii|max:255|min:3',
+            'lastName' => 'required|alpha:ascii|max:255|min:3',
             'phoneNumber' => 'required|digits:10|numeric|starts_with:09,07',
         ]);
 
 
-
+        
 
 
         dd($request->all());
@@ -66,7 +66,7 @@ class ChapaController extends Controller
             return;
         }
 
-        
+
         //if payment is successful
         return redirect($payment['data']['checkout_url']);
     }
