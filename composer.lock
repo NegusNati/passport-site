@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2321e501749e00861e793a4dd43dd7a1",
+    "content-hash": "02d69f8b4ac9343bc12344262a16e2b1",
     "packages": [
         {
             "name": "brick/math",
@@ -134,6 +134,88 @@
                 }
             ],
             "time": "2024-02-09T16:56:22+00:00"
+        },
+        {
+            "name": "chapa/chapa-laravel",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NegusNati/chapa-laravel.git",
+                "reference": "ea8b909e973cb1ccb06b9dedb198248e77d1e92c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NegusNati/chapa-laravel/zipball/ea8b909e973cb1ccb06b9dedb198248e77d1e92c",
+                "reference": "ea8b909e973cb1ccb06b9dedb198248e77d1e92c",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6|~7|~8|~9",
+                "illuminate/support": "^5.0|^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+                "php": "^7.2|^8.0|^8.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Chapa\\Chapa\\ChapaServiceProvider"
+                    ],
+                    "aliases": {
+                        "Chapa": "Chapa\\Chapa\\Facades\\Chapa"
+                    }
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/Chapa.php"
+                ],
+                "psr-4": {
+                    "Chapa\\Chapa\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Chapa\\Chapa\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit"
+                ],
+                "test-coverage": [
+                    "vendor/bin/phpunit --coverage-html coverage"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kidus Yared",
+                    "email": "kidusy@chapa.co",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Israel Goytom",
+                    "email": "myfirstname@chapa.co",
+                    "role": "CTO"
+                }
+            ],
+            "description": "A Laravel Package to Accept Payment through Chapa",
+            "homepage": "https://github.com/chapa-et/chapa-laravel",
+            "keywords": [
+                "chapa",
+                "chapa-laravel"
+            ],
+            "support": {
+                "source": "https://github.com/NegusNati/chapa-laravel/tree/main"
+            },
+            "time": "2024-06-09T12:40:09+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -9055,7 +9137,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "chapa/chapa-laravel": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

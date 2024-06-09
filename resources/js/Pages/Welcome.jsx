@@ -11,6 +11,14 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
             ?.classList.add("!flex-row");
         document.getElementById("background")?.classList.add("!hidden");
     };
+    // const { props } = usePage();
+    // const form = useForm({
+    //     // Add any form fields you need here
+    // });
+
+    // const submit = () => {
+    //     form.post(route("pay"));
+    // };
 
     return (
         <>
@@ -21,7 +29,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                     className="absolute -left-20 top-0 max-w-[1100px]"
                     src="https://laravel.com/assets/img/welcome/background.svg"
                 />
-                <div className="relative min-h-screen mt-10 px-1 pt-10 selection:bg-[#FF2D20] selection:text-white ">
+                <div className="relative min-h-screen mt-10 px-1 pt-10 selection:bg-[#FF2D20] selection:text-white px-4 sm:px-6 lg:px-8">
                     {/* <div className="relative w-full max-w-2xl px-6 lg:max-w-7xl"> */}
                     <header className="flex justify-between space-x-8 items-center gap-2  lg:grid-cols-3 ">
                         <div className="mr-auto">
@@ -50,39 +58,39 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                 <text
                                     x="50"
                                     y="15"
-                                    font-size="6"
-                                    font-family="Arial"
+                                    fontSize="6"
+                                    fontFamily="Arial"
                                     fill="#FFFFFF"
-                                    text-anchor="middle"
+                                    textAnchor="middle"
                                 >
                                     REPUBLIC OF ETHIOPIA
                                 </text>
                                 <text
                                     x="50"
                                     y="60"
-                                    font-size="6"
-                                    font-family="Arial"
+                                    fontSize="6"
+                                    fontFamily="Arial"
                                     fill="#FFFFFF"
-                                    text-anchor="middle"
+                                    textAnchor="middle"
                                 >
                                     PASSPORT
                                 </text>
 
                                 <line
                                     x1="10"
-                                    y1="25"
+                                    y1="19"
                                     x2="90"
-                                    y2="25"
+                                    y2="19"
                                     stroke="#FFFFFF"
-                                    stroke-width="2"
+                                    strokeWidth="2"
                                 />
                                 <line
                                     x1="10"
-                                    y1="55"
-                                    x2="80"
-                                    y2="55"
+                                    y1="50"
+                                    x2="90"
+                                    y2="50"
                                     stroke="#FFFFFF"
-                                    stroke-width="2"
+                                    strokeWidth="2"
                                 />
                             </svg>
                         </div>
@@ -124,9 +132,8 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                 </h1>
 
                                 <p className="mt-4 sm:text-xl/relaxed">
-                                    Lorem ipsum dolor sit amet consectetur,
-                                    adipisicing elit. Nesciunt illo tenetur fuga
-                                    ducimus numquam ea!
+                                    You can look at the most recent passports
+                                    published by the government of Ethiopia.
                                 </p>
 
                                 <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -191,7 +198,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
                                             <span className="text-gray-700 capitalize">
                                                 {" "}
-                                                passport information{" "}
+                                                Latest passport information{" "}
                                             </span>
                                         </li>
 
@@ -213,7 +220,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
                                             <span className="text-gray-700 capitalize">
                                                 {" "}
-                                                Date of recival{" "}
+                                                Date of receival{" "}
                                             </span>
                                         </li>
 
@@ -308,7 +315,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
                                     <a
                                         id="payment"
-                                        href="#"
+                                        href="/payment"
                                         className="mt-8 block rounded-full border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-indigo-700 hover:ring-1 hover:ring-indigo-700 focus:outline-none focus:ring active:text-indigo-500"
                                     >
                                         Get Started
@@ -377,7 +384,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
                                             <span className="text-gray-700 capitalize">
                                                 {" "}
-                                                Date of recival{" "}
+                                                Date of receival{" "}
                                             </span>
                                         </li>
 

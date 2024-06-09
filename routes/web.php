@@ -44,4 +44,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+// The route that the button calls to initialize payment
+Route::get('/payment', function (){
+    return Inertia::render('Payment');
+    // return view('payment');
+});
+// The route that the button calls to initialize payment
+
+Route::post('pay', 'App\Http\Controllers\ChapaController@initialize')->name('pay');
+
+// The callback url after a payment
+Route::get('callback/{reference}', 'App\Http\Controllers\ChapaController@callback')->name('callback');
+
 require __DIR__.'/auth.php';

@@ -2,7 +2,10 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "keywords": [
+        "laravel",
+        "framework"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.2",
@@ -13,7 +16,8 @@
         "laravel/tinker": "^2.9",
         "smalot/pdfparser": "^2.10",
         "spatie/pdf-to-text": "^1.52",
-        "tightenco/ziggy": "^2.0"
+        "tightenco/ziggy": "^2.0",
+        "chapa/chapa-laravel": "dev-main"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -67,6 +71,12 @@
             "php-http/discovery": true
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/negusnati/chapa-laravel"
+        }
+    ],
     "minimum-stability": "stable",
     "prefer-stable": true
 }
