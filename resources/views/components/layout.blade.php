@@ -13,10 +13,10 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-white/70 text-black pb-20">
+<body class=" pb-20 min-h-screen  bg-gray-100 dark:bg-gray-900  m-auto bg-gradient-to-r from-rose-100 to-teal-100">
     <div class="px-8 mt-3">
 
-      
+
 
         <main class="mt-8 max-w-[990px] m-auto">
             {{ $slot }}

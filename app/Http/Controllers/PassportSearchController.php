@@ -75,6 +75,7 @@ class PassportSearchController extends Controller
             [
                 'passports' => $passports,
                 'search' => $request->all(), // Pass all search parameters back to the view
+
             ]
         );
 
@@ -92,6 +93,15 @@ class PassportSearchController extends Controller
         //         'search' => $search,
         //     ]
         // );
+    }
+    public function detail(Request $request, $id)
+    {
+        $passport = PDFToSQLite::findOrFail($id);
+
+        return Inertia::render('Passport/ShowDetail', [
+            'passport' => $passport,
+
+        ]);
     }
 
     /**

@@ -26,7 +26,8 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
 
     Route::get('/passport', [PassportSearchController::class, 'index'])->name('passport');
-    Route::post('/passport', [PassportSearchController::class, 'show'])->name('passport.show');
+    Route::post('/passport', [PassportSearchController::class, 'show'])->name('passport');
+    Route::get('/passport/{id}', [PassportSearchController::class, 'detail'])->name('passport.showDetail');
 
 
     // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

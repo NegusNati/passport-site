@@ -51,7 +51,7 @@
 
 <x-layout>
 
-    <div class="pb-25 pt-10">
+    <div class="pb-25 p-8 pt-10 max-w-[990px] m-auto border border-blue-600 rounded-lg ">
         <x-header >Publish PDF To SQLite DB </x-header>
         <x-forms.form action="/pdf-to-sqlite" method="POST" enctype="multipart/form-data" class="mt-6">
 
