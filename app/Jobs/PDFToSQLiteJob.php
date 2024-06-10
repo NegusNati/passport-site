@@ -21,6 +21,7 @@ class PDFToSQLiteJob implements ShouldQueue
     private $records;
     private $date;
     private $linesToSkip;
+    private $location;
 
     /**
      * Create a new job instance.
@@ -28,11 +29,12 @@ class PDFToSQLiteJob implements ShouldQueue
      * @param string $pdfPath
      * @return void
      */
-    public function __construct($filePath, $date, $linesToSkip)
+    public function __construct($filePath, $date,  $location, $linesToSkip)
     {
         $this->filePath = $filePath;
         $this->date = $date;
         $this->linesToSkip = $linesToSkip;
+        $this->location = $location;
     }
 
     /**
@@ -82,13 +84,12 @@ class PDFToSQLiteJob implements ShouldQueue
         //         }
         //     }
         // }
-        
+
 
         $records = [];
         $i = 0;
-        $linesToSkip = 2;
 
-        $keyword = $linesToSkip; // or any other keyword that marks the start of the data
+        $keyword = $this->linesToSkip; // or any other keyword that marks the start of the data
         $lines = explode("\n", $text);
         $startParsing = false;
 
@@ -96,6 +97,7 @@ class PDFToSQLiteJob implements ShouldQueue
             if (!$startParsing) {
                 if (strpos($line, $keyword) !== false) {
                     $startParsing = true;
+                    continue; 
                 }
             } else {
                 // parse the line as data
@@ -107,6 +109,7 @@ class PDFToSQLiteJob implements ShouldQueue
                     'lastName' => null,
                     'requestNumber' => null,
                     'dateOfPublish' => $this->date,
+                    'location' => $this->location,
                     'created_at' => now(),
                 ];
 

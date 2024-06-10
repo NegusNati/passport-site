@@ -89,6 +89,10 @@ function Show({ auth, passports, search }) {
                                                 )}
                                             </strong>
                                         </p>
+                                        <p>
+                                            Location :{" "}
+                                            <strong>{passport.location}</strong>    
+                                        </p>
                                     </div>
                                 </div>
                             </div>

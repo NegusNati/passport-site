@@ -22,7 +22,7 @@ function ShowDetail({ auth, passport }) {
                         <div className="space-y-2 font-bold text-2xl hover:text-red-800 transition-colors duration-500 uppercase flex flex-col items-center">
                             <p>
 
-                            <span className="font-bold text-2xl hover:text-red-800 transition-colors duration-500 uppercase ">
+                            <span className="font-bold text-2xl hover:text-red-800 transition-colors duration-500 uppercase  text-center w-full block">
                                 {" "}
                                 Federal Democratic Republic of Ethiopia
                             </span>
@@ -47,6 +47,10 @@ function ShowDetail({ auth, passport }) {
                             <p className="  ">
                                 You Can Rrecive After :{" "}
                                 <strong className="" >{formatDate(passport.dateOfPublish)} G.C.</strong>
+                            </p>
+                            <p>
+                                Location :{" "}
+                                <strong>{passport.location}</strong>
                             </p>
                         </div>
                         <div className=" space-y-2 font-light text-sm pb-1 mt-4  pt-4 flex flex-col items-center">

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('middleName')->nullable();
             $table->string('lastName')->nullable();
             $table->string('requestNumber')->unique();
+            $table->string('location')->nullable();
             $table->date('dateOfPublish');
             $table->timestamps();
         });

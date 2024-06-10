@@ -120,7 +120,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             )}
                         </nav>
                     </header>
-                    <main className="bg-gray-50 bg-transparent w-full ">
+                    <main className="bg-gray-50 bg-transparent w-full sm:mb-6 lg:px-8">
                         <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
                             <div className="mx-auto max-w-xl text-center">
                                 <h1 className="text-3xl font-extrabold sm:text-5xl capitalize">
@@ -156,7 +156,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                     </main>
 
                     <section className="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
-                        <div className="mx-auto max-w-3xl px-4 pt-8 mb-8 sm:px-6 sm:py-12 lg:px-8">
+                        <div className="mx-auto max-w-3xl px-4 pt-8 mb-8 sm:px-6 sm:py-20 lg:px-8">
                             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:items-center md:gap-8">
                                 <div className="rounded-2xl border border-indigo-600 p-6 shadow-sm ring-1 ring-indigo-600 sm:order-last sm:px-8 lg:p-12">
                                     <div className="text-center">

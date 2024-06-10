@@ -19,6 +19,7 @@ class PDFToSQLiteController extends Controller
         $request->validate([
             'pdf_file' => 'required|file|mimes:pdf',
             'date' => 'required|date',
+            'location' => 'required',
             'linesToSkip' => 'required',
         ]);
 
@@ -26,7 +27,7 @@ class PDFToSQLiteController extends Controller
         $filePath = storage_path('app/public/pdfs/' . basename($path));
         Log::info("Attempting to read file path: {$filePath}");
         // PDFToSQLiteJob::dispatch($filePath);
-        dispatch(new PDFToSQLiteJob($filePath , $request->date, $request->linesToSkip));
+        dispatch(new PDFToSQLiteJob($filePath , $request->date, $request->location,$request->linesToSkip ));
         Log::info("After the dispatch");
 
 
