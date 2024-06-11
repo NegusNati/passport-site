@@ -48,13 +48,17 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     fill="#c71508"
                                     rx="5"
                                 />
-
                                 <circle cx="50" cy="35" r="10" fill="#F8E231" />
                                 <path
                                     d="M45 30 L55 30 L55 40 L45 40 Z"
                                     fill="#F8E231"
                                 />
-
+                                <path
+                                    d="M50 27.5 L51.76 32.45 L56.97 32.45 L52.60 35.55 L54.36 40.5 L50 37.5 L45.64 40.5 L47.40 35.55 L43.03 32.45 L48.24 32.45 Z"
+                                    fill="none"
+                                    stroke="black"
+                                    strokeWidth="1"
+                                />
                                 <text
                                     x="50"
                                     y="15"
@@ -75,7 +79,6 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                 >
                                     PASSPORT
                                 </text>
-
                                 <line
                                     x1="10"
                                     y1="19"

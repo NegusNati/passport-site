@@ -33,7 +33,7 @@ export default function Dashboard({ auth }) {
                     <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900 dark:text-gray-100">
                             <div className="  ">
-                                <a
+                                <Link
                                     href={route("passport")}
                                     className="flex items-start gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]"
                                 >
@@ -78,7 +78,7 @@ export default function Dashboard({ auth }) {
                                             d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
                                         />
                                     </svg>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
