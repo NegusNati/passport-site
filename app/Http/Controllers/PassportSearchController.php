@@ -6,6 +6,8 @@ use App\Models\PDFToSQLite;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
+use function Pest\Laravel\get;
+
 class PassportSearchController extends Controller
 {
     /**
@@ -119,12 +121,23 @@ class PassportSearchController extends Controller
     {
         //
     }
+    public function all(Request $request)
+    {
+        $passports = PDFToSQLite::latest()->simplePaginate(50);
+        // $jobs = Job::with('employer', 'tags')->latest()->simplePaginate(10);
+        // dd($passports);
+        return Inertia::render('Passport/TableView', [
+            'passports' => $passports,
+
+        ]);
+
+    }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+
     }
 }
