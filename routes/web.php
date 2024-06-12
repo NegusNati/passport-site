@@ -63,4 +63,10 @@ Route::post('/pay', 'App\Http\Controllers\ChapaController@initialize')->name('pa
 // The callback url after a payment
 Route::get('callback/{reference}', 'App\Http\Controllers\ChapaController@callback')->name('callback');
 
+
+
+Route::fallback(function(){
+    return Inertia::render('PageNotFound');
+});
+
 require __DIR__ . '/auth.php';
