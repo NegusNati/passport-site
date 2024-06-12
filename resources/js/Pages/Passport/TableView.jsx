@@ -1,10 +1,33 @@
 import Authenticated from "@/Layouts/AuthenticatedLayout";
-import { Head, Link, useForm,  } from "@inertiajs/react";
+import { Head, Link, useForm } from "@inertiajs/react";
 import formatDate from "@/helpers/formarDate";
+import React, { useState } from "react";
+import Pagination from "@/Components/Pagination";
 
 function TableView({ auth, passports }) {
     console.log(passports);
-    const { data, links  } = passports;
+    let { data, links } = passports;
+
+    const [filterBy, setFilterBy] = useState("");
+    const [filterValue, setFilterValue] = useState("");
+
+    // const handleFilter = () => {
+    //     // Filter the data based on the selected filter criteria
+    //     let filteredData = data;
+    //     if (filterBy === "alphabet") {
+    //         filteredData = data.filter((item) =>
+    //             item.firstName
+    //                 .toLowerCase()
+    //                 .startsWith(filterValue.toLowerCase())
+    //         );
+    //     } else if (filterBy === "time") {
+    //         filteredData = data.filter(
+    //             (item) => new Date(item.createdAt) >= new Date(filterValue)
+    //         );
+    //     }
+
+    //     data = filteredData;
+    // };
 
     return (
         <Authenticated
@@ -16,7 +39,52 @@ function TableView({ auth, passports }) {
             }
         >
             <Head title="All Passports" />
-            <main className="mt-10 max-w-[990px] m-auto  mb-20 bg-white/80  rounded-2xl border border-transparent  hover:border-blue-500 transition-colors duration-300 group mt-8 py-8 selection:bg-[#FF2D20] selection:text-white ">
+            <main className=" py-4 mt-10 max-w-[990px] m-auto  mb-20 bg-white/80  rounded-2xl border border-transparent  hover:border-blue-500 transition-colors duration-300 group mt-8 py-8 selection:bg-[#FF2D20] selection:text-white ">
+                <div >
+                    <div className="flex justify-center items-center">
+                        <h2 className="font-bold text-2xl text-gray-800 dark:text-gray-200 leading-tight pb-4 capitalize ">
+                            All Latest Passports
+                        </h2>
+                        {/* <div className="flex items-center">
+                            <select
+                                className="mr-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                value={filterBy}
+                                onChange={(e) => setFilterBy(e.target.value)}
+                            >
+                                <option value="">Filter by</option>
+                                <option value="alphabet">Alphabet</option>
+                                <option value="time">Time</option>
+                            </select>
+                            {filterBy === "alphabet" && (
+                                <input
+                                    type="text"
+                                    className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                    placeholder="Filter by name"
+                                    value={filterValue}
+                                    onChange={(e) =>
+                                        setFilterValue(e.target.value)
+                                    }
+                                />
+                            )}
+                            {filterBy === "time" && (
+                                <input
+                                    type="date"
+                                    className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                    value={filterValue}
+                                    onChange={(e) =>
+                                        setFilterValue(e.target.value)
+                                    }
+                                />
+                            )}
+                            <button
+                                className="ml-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                                onClick={handleFilter}
+                            >
+                                Filter
+                            </button>
+                        </div> */}
+                    </div>
+                </div>
                 <div className="overflow-x-auto">
                     <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm p-4">
                         <thead className="ltr:text-left rtl:text-right">
@@ -74,29 +142,17 @@ function TableView({ auth, passports }) {
                                             href={route("passport.showDetail", {
                                                 id: passport.id,
                                             })}
-                                            className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
+                                            className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-[#FF2D20] transition-colors duration-300"
                                         >
-                                            View
+                                            Detail
                                         </Link>
                                     </td>
                                 </tr>
                             </tbody>
                         ))}
                     </table>
-                    <div className="p-4">
-                        {links?.map((link, i) => (
-                            <Link
-                                key={i}
-                                href={link.url}
-                                className={`px-4 py-2 ${
-                                    link.active
-                                        ? "bg-blue-500 text-white"
-                                        : "bg-white text-blue-500"
-                                } rounded`}
-                            >
-                                {link.label}
-                            </Link>
-                        ))}
+                    <div className="p-4 m-4">
+                    <Pagination passports={passports} />
                     </div>
                 </div>
             </main>

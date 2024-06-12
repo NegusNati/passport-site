@@ -70,7 +70,7 @@ export default function ApplicationLogo(props) {
             <path
                 d="M50 27.5 L51.76 32.45 L56.97 32.45 L52.60 35.55 L54.36 40.5 L50 37.5 L45.64 40.5 L47.40 35.55 L43.03 32.45 L48.24 32.45 Z"
                 fill="none"
-                stroke="black"
+                stroke="white"
                 strokeWidth="1"
             />
             <text

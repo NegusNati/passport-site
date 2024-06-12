@@ -1,3 +1,4 @@
+import ApplicationLogo from "@/Components/ApplicationLogo";
 import { Link, Head } from "@inertiajs/react";
 
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
@@ -32,8 +33,8 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                 <div className="relative min-h-screen py-4 px-1 pt-50 selection:bg-[#FF2D20] selection:text-white px-4 sm:px-6 lg:px-8">
                     {/* <div className="relative w-full max-w-2xl px-6 lg:max-w-7xl"> */}
                     <header className="flex justify-between space-x-8 items-center gap-2  lg:grid-cols-3 ">
-                        <div className="mr-auto">
-                            <svg
+                        <div className="mr-auto pt-2">
+                            {/* <svg
                                 width="150"
                                 height="150"
                                 viewBox="0 0 100 70"
@@ -95,7 +96,9 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     stroke="#FFFFFF"
                                     strokeWidth="2"
                                 />
-                            </svg>
+                            </svg> */}
+
+                            <ApplicationLogo />
                         </div>
                         <nav className="ml-auto flex justify-between space-x-4 ">
                             {auth.user ? (

@@ -124,8 +124,7 @@ class PassportSearchController extends Controller
     public function all(Request $request)
     {
         $passports = PDFToSQLite::latest()->simplePaginate(50);
-        // $jobs = Job::with('employer', 'tags')->latest()->simplePaginate(10);
-        // dd($passports);
+     
         return Inertia::render('Passport/TableView', [
             'passports' => $passports,
 
