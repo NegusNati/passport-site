@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -59,5 +60,13 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+    public function assignAdminRole(Request $request)
+    {
+        $user = User::find(1); // Assuming you want to find the user with ID 1
+        $user->assignRole('admin'); // Assigning the 'admin' role
+
+        return back()->with('success', 'Admin role assigned successfully.');
     }
 }

@@ -25,7 +25,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
     return (
         <>
             <Head title="Welcome" />
-            <div className="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
+            <div className="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50 pb-10">
                 <img
                     id="background"
                     className="absolute -left-20 top-0 max-w-[1100px]"
@@ -162,7 +162,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         </div>
                     </main>
 
-                    <section className="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
+                    <section className="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50 py-12 pb-8">
                         <div className="mx-auto max-w-3xl px-4 pt-8 mb-8 sm:px-6 sm:py-20 lg:px-8">
                             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:items-center md:gap-8">
                                 <div className="rounded-2xl border border-indigo-600 p-6 shadow-sm ring-1 ring-indigo-600 sm:order-last sm:px-8 lg:p-12">
@@ -346,7 +346,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                             </strong>
 
                                             <span className="text-sm font-medium text-gray-700">
-                                                for 24 Hours + 6 Hours
+                                                for 12 + 12 Hours
                                             </span>
                                         </p>
                                     </div>

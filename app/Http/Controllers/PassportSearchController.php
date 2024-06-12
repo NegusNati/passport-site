@@ -123,8 +123,9 @@ class PassportSearchController extends Controller
     }
     public function all(Request $request)
     {
-        $passports = PDFToSQLite::latest()->simplePaginate(50);
-     
+
+        $passports = PDFToSQLite::latest()->simplePaginate(50)->fragment("fragment-id");
+
         return Inertia::render('Passport/TableView', [
             'passports' => $passports,
 

@@ -11,8 +11,8 @@ use Inertia\Inertia;
 
 
 
-Route::post('/pdf-to-sqlite',  [PDFToSQLiteController::class, 'store'])->name('pdf-to-sqlite');
-Route::get('/pdf-to-sqlite',  [PDFToSQLiteController::class, 'create']);
+Route::post('/pdf-to-sqlite',  [PDFToSQLiteController::class, 'store'])->name('pdf-to-sqlite')->can('upload-files');
+Route::get('/pdf-to-sqlite',  [PDFToSQLiteController::class, 'create'])->can('upload-files');
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -55,7 +55,6 @@ Route::get('/payment', function () {
     return Inertia::render('Payment', [
         'amount' => request()->amount,
     ]);
-
 })->name('payment');
 // The route that the button calls to initialize payment
 
@@ -64,4 +63,4 @@ Route::post('/pay', 'App\Http\Controllers\ChapaController@initialize')->name('pa
 // The callback url after a payment
 Route::get('callback/{reference}', 'App\Http\Controllers\ChapaController@callback')->name('callback');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

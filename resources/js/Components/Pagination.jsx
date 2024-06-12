@@ -3,7 +3,7 @@ import { Link } from "@inertiajs/react";
 const Pagination = ({ passports }) => {
     return (
         <div className=" font-semibold text-sm text-gray-700 dark:text-gray-300 flex justify-between border-t border-gray-200 pt-4 px-4 ">
-            
+
             {passports.prev_page_url && (
                 <Link
                     href={passports.prev_page_url}
@@ -23,7 +23,10 @@ const Pagination = ({ passports }) => {
                     {i + 1}
                 </Link>
             ))}
-            <p>{passports.from + " - " + passports.to}</p>
+            <p
+        id="fragment-id"
+        className="transition-all duration-500 ease-in-out"
+            >{passports.from + " - " + passports.to}</p>
             {passports.next_page_url && (
                 <Link
                     href={passports.next_page_url}
