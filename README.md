@@ -1,4 +1,4 @@
-![image](https://github.com/NegusNati/passport-site/assets/84500378/819d0326-a9b6-4c39-ad05-0b2dcf43262e)# PassportET
+# PassportET
 
 A simple way to look if your passport is read to collect and which day of the week you should collect. it is Role & Permission based site with PDF to SQLite parsing, Queue operations for PDF parsing, Automated daily updates, Payment integration with [Chapa payment gateway](https://chapa.co)!
 
