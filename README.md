@@ -1,4 +1,4 @@
-# PassportET
+![image](https://github.com/NegusNati/passport-site/assets/84500378/819d0326-a9b6-4c39-ad05-0b2dcf43262e)# PassportET
 
 A simple way to look if your passport is read to collect and which day of the week you should collect. it is Role & Permission based site with PDF to SQLite parsing, Queue operations for PDF parsing, Automated daily updates, Payment integration with [Chapa payment gateway](https://chapa.co)!
 
@@ -16,3 +16,15 @@ A simple way to look if your passport is read to collect and which day of the we
  
  - Search By Name or Request Number
  <img src="https://github.com/NegusNati/Airbnb-Experiences-Clone/assets/84500378/b2babbbb-213f-4c0c-9d11-9f4002646a12">
+
+ - Permission based Admin routes for data entery
+ <img src="https://github.com/NegusNati/Airbnb-Experiences-Clone/assets/84500378/65b04087-cbd9-4ce8-ab25-9c85cbfb532b">
+
+ - Searching Only by Name or by any related feilds
+ <img src="https://github.com/NegusNati/Airbnb-Experiences-Clone/assets/84500378/e342046b-aa5a-4871-ad06-3e62999c5583">
+
+  - Detailed info about your Passport and where to pick it up
+ <img src="https://github.com/NegusNati/Airbnb-Experiences-Clone/assets/84500378/8d8ec474-db7f-41ac-b428-19988054924d">
+
+  - Paginated list of Latest Passport ready for pick up 
+ <img src="https://github.com/NegusNati/Airbnb-Experiences-Clone/assets/84500378/ae3132ca-28f6-43cc-b342-1e2322eb18b7">
