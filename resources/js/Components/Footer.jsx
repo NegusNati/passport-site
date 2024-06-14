@@ -35,7 +35,7 @@ function Footer() {
 
                         <li>
                             <a
-                                href="#"
+                                href={route('privacy')}
                                 className="text-gray-500 transition hover:opacity-75"
                             >
                                 {" "}
