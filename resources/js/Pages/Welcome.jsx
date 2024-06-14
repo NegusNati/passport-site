@@ -31,7 +31,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                     className="absolute -left-20 top-0 max-w-[1100px]"
                     src="https://laravel.com/assets/img/welcome/background.svg"
                 />
-                <div className="relative min-h-screen pt-4 px-1 pt-50 selection:bg-[#FF2D20] selection:text-white px-4 sm:px-6 lg:px-8">
+                <div className="relative min-h-screen pt-4 px-1 pt-50 selection:bg-[#FF2D20] selection:text-white sm:px-4 sm:px-6 lg:px-8">
                     {/* <div className="relative w-full max-w-2xl px-6 lg:max-w-7xl"> */}
                     <header className="flex justify-between space-x-8 items-center gap-2  lg:grid-cols-3 ">
                         <div className="mr-auto pt-2">
@@ -128,7 +128,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         </nav>
                     </header>
                     <main className="bg-gray-50 bg-transparent w-full sm:py-20 lg:px-8 ">
-                        <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center mb-20 ">
+                        <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex  lg:items-center mb-20 ">
                             <div className="mx-auto max-w-xl text-center">
                                 <h1 className="text-3xl font-extrabold sm:text-5xl capitalize">
                                     Is your Passport Ready?
@@ -162,10 +162,10 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         </div>
                     </main>
 
-                    <section className="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50 py-12 pb-8">
+                    <section className="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50 py-12 pb-8 m-auto bg-gradient-to-r from-rose-100 to-teal-100 rounded-xl pb-10">
                         <div className="mx-auto max-w-3xl px-4 pt-8 mb-8 sm:px-6 sm:py-20 lg:px-8">
-                            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:items-center md:gap-8">
-                                <div className="rounded-2xl border border-indigo-600 p-6 shadow-sm ring-1 ring-indigo-600 sm:order-last sm:px-8 lg:p-12">
+                            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:items-center md:gap-8 ">
+                                <div className="rounded-2xl border border-indigo-600 p-6 shadow-sm ring-1 ring-indigo-600 sm:order-last sm:px-8 lg:p-12 bg-white/[0.5]">
                                     <div className="text-center">
                                         <h2 className="text-lg font-medium text-gray-900">
                                             Pro
@@ -330,7 +330,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     </a>
                                 </div>
 
-                                <div className="rounded-2xl border border-gray-200 p-6 shadow-sm sm:px-8 lg:p-12">
+                                <div className="rounded-2xl border border-blue-200 p-6 shadow-sm sm:px-8 lg:p-12 bg-white/[0.5]">
                                     <div className="text-center">
                                         <h2 className="text-lg font-medium text-gray-900">
                                             Starter

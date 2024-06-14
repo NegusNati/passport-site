@@ -253,7 +253,7 @@ function PrivacyPolicy({ auth }) {
                                 <a
                                     href="mailto:info@passportEt.et"
                                     className="text-blue-500"
-                                >
+                                >x
                                     {" "}
                                     info@passportet.com
                                 </a>
