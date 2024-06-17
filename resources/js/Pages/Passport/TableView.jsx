@@ -5,11 +5,12 @@ import React, { useState } from "react";
 import Pagination from "@/Components/Pagination";
 
 function TableView({ auth, passports }) {
-    console.log(passports);
     let { data, links } = passports;
 
-    const [filterBy, setFilterBy] = useState("");
-    const [filterValue, setFilterValue] = useState("");
+    // const [filterBy, setFilterBy] = useState("");
+    // const [filterValue, setFilterValue] = useState("");
+
+    const [transitionClass, setTransitionClass] = useState("");
 
     // const handleFilter = () => {
     //     // Filter the data based on the selected filter criteria
@@ -28,6 +29,15 @@ function TableView({ auth, passports }) {
 
     //     data = filteredData;
     // };
+
+       // Step 2: Toggle the transition class when the page changes
+    // This assumes you have a function to handle page change
+    const handlePageChange = (newPage) => {
+        // Your logic to fetch new data based on the new page
+        // After fetching new data, toggle the transition class
+        setTransitionClass(newPage === passports.current_page ? "" : "opacity-0");
+        setTimeout(() => setTransitionClass(""), 500); // Reset after the transition completes
+    };
 
     return (
         <Authenticated
@@ -112,7 +122,7 @@ function TableView({ auth, passports }) {
                         </thead>
                         {data?.map((passport) => (
                             <tbody
-                                className="divide-y divide-gray-200 pl-4"
+                                className={`divide-y divide-gray-200 pl-4 transition-opacity duration-500 ease-out ${transitionClass}`}
                                 key={passport.id}
                             >
                                 <tr
@@ -152,7 +162,7 @@ function TableView({ auth, passports }) {
                         ))}
                     </table>
                     <div className="p-4 m-4">
-                    <Pagination passports={passports} />
+                    <Pagination passports={passports} handlePageChange={handlePageChange} />
                     </div>
                 </div>
             </main>

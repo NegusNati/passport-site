@@ -1,15 +1,18 @@
 import { Link } from "@inertiajs/react";
 
-const Pagination = ({ passports }) => {
+const Pagination = ({ passports, handlePageChange }) => {
     return (
         <div className=" font-semibold text-sm text-gray-700 dark:text-gray-300 flex justify-between border-t border-gray-200 pt-4 px-4 ">
-
             {passports.prev_page_url && (
                 <Link
                     href={passports.prev_page_url}
                     className="pagination-link"
+                    onClick={(e) => {
+                  
+                        handlePageChange(passports.prev_page_url);
+                    }}
                 >
-                    Previous
+                    {"<"} Previous
                 </Link>
             )}
             {Array.from({ length: passports.last_page }, (_, i) => (
@@ -24,15 +27,21 @@ const Pagination = ({ passports }) => {
                 </Link>
             ))}
             <p
-        id="fragment-id"
-        className="transition-all duration-500 ease-in-out"
-            >{passports.from + " - " + passports.to}</p>
+                id="fragment-id"
+                className="transition-all duration-500 ease-in-out"
+            >
+                {passports.from + " - " + passports.to}
+            </p>
             {passports.next_page_url && (
                 <Link
                     href={passports.next_page_url}
                     className="pagination-link"
+                    onClick={(e) => {
+
+                        handlePageChange(passports.next_page_url);
+                    }}
                 >
-                    Next
+                    Next {">"}
                 </Link>
             )}
         </div>
