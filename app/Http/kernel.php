@@ -6,6 +6,17 @@ use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
 {
+
+    /**
+     * The application's global HTTP middleware stack.
+     *
+     * @var array
+     */
+    protected $middleware = [
+        // Other middleware...
+        \App\Http\Middleware\HandleCors::class, // Add this line
+    ];
+
     /**
      * The application's route middleware groups.
      *
@@ -19,7 +30,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
 
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \App\Http\Middleware\Cors::class, // <--- Add this line
+            \App\Http\Middleware\HandleCors::class, // Add this line
         ],
 
         'api' => [

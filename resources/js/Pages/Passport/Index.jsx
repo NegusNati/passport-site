@@ -24,7 +24,7 @@ function Index({ auth }) {
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('passport'));
+        post(route('passport.show'));
     };
     return (
         <Authenticated

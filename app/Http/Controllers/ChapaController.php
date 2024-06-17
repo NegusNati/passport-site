@@ -63,7 +63,7 @@ class ChapaController extends Controller
 
         if ($payment['status'] !== 'success') {
             // notify something went wrong
-            dd($payment->errorMessage);
+            dd($payment);
             return;
         }
         // dd($payment);

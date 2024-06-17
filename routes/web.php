@@ -11,6 +11,7 @@ use Inertia\Inertia;
 
 
 
+
 Route::post('/pdf-to-sqlite',  [PDFToSQLiteController::class, 'store'])->name('pdf-to-sqlite')->can('upload-files');
 Route::get('/pdf-to-sqlite',  [PDFToSQLiteController::class, 'create'])->can('upload-files');
 
@@ -26,7 +27,7 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
 
     Route::get('/passport', [PassportSearchController::class, 'index'])->name('passport');
-    Route::post('/passport', [PassportSearchController::class, 'show'])->name('passport');
+    Route::post('/passport', [PassportSearchController::class, 'show'])->name('passport.show');
     Route::get('/passport/{id}', [PassportSearchController::class, 'detail'])->name('passport.showDetail');
     Route::get('/all-passports', [PassportSearchController::class, 'all'])->name('passport.all');
 
@@ -53,6 +54,11 @@ Route::get('/privacy', function () {
 })->name('privacy');
 
 
+
+
+Route::options('{any}', function () {
+    return response()->json([], 200);
+})->where('any', '.*');
 
 
 // The route that the button calls to initialize payment
