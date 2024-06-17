@@ -13,26 +13,6 @@ const days = [
 ];
 
 function ShowDetail({ auth, passport }) {
-    
-    // function getDayOfWeek(firstName) {
-    // const letter = firstName.charAt(0).toLowerCase();
-    // if (["a", "b", "c", "d", "e", "f", "g"].includes(letter)) return "Monday";
-    // if (
-    //     ["m", "n", "o", "p", "q", "r", "h", "i", "j", "k", "l"].includes(letter)
-    // )
-    //     return "Tuesday";
-    // if (["a", "b", "c", "d", "e", "t"].includes(letter)) return "Wednesday";
-    // if (
-    //     ["m", "i", "j", "k", "l", "s", "u", "v", "w", "x", "y", "z"].includes(
-    //         letter
-    //     )
-    // )
-    //     return "Thursday";
-    // if (["a", "f", "g", "h", "n", "o", "p", "q", "r"].includes(letter))
-    //     return "Friday";
-    // if (["m", "s", "t", "u", "v", "w", "x", "y", "z"].includes(letter))
-    //     return "Saturday";
-    // return 'Please check the schedule or come Sunday'; }
 
     function getDayOfWeek(firstName) {
         const letter = firstName.charAt(0).toLowerCase();
