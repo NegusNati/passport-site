@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Subscription;
 use Chapa\Chapa\Facades\Chapa as Chapa;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ChapaController extends Controller
 {
@@ -76,7 +77,8 @@ class ChapaController extends Controller
 
 
         //if payment is successful
-        return redirect($payment['data']['checkout_url']);
+        // return redirect($payment['data']['checkout_url']);
+        return Inertia::location($payment['data']['checkout_url']);
     }
 
     /**
