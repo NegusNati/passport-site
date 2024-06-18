@@ -15,6 +15,7 @@ class Kernel extends HttpKernel
     protected $middleware = [
         // Other middleware...
         \App\Http\Middleware\HandleCors::class, // Add this line
+        'ratelimit' => \App\Http\Middleware\RateLimitMiddleware::class,
     ];
 
     /**
@@ -45,6 +46,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        // ...
+
     ];
+
 }

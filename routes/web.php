@@ -3,11 +3,12 @@
 use App\Http\Controllers\PassportSearchController;
 use App\Http\Controllers\PDFToSQLiteController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubscriptionController;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
 
 
 
@@ -24,10 +25,10 @@ Route::get('/', function () {
     ]);
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'throttle:rateLimiter'])->group(function () {
 
     Route::get('/passport', [PassportSearchController::class, 'index'])->name('passport');
-    Route::post('/passport', [PassportSearchController::class, 'show'])->name('passport.    ');
+    Route::post('/passport', [PassportSearchController::class, 'show'])->name('passport.show');
     Route::get('/passport/{id}', [PassportSearchController::class, 'detail'])->name('passport.showDetail');
     Route::get('/all-passports', [PassportSearchController::class, 'all'])->name('passport.all');
 
@@ -53,6 +54,14 @@ Route::get('/privacy', function () {
     return Inertia::render('Terms/PrivacyPolicy');
 })->name('privacy');
 
+Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->middleware('auth')->name('subscribe');
+Route::get(
+    '/subscribe',
+    function () {
+        return Inertia::render('Subscription/Subscribe');
+        // return view('subscribe');
+    }
+)->middleware('auth');
 
 
 
@@ -78,7 +87,7 @@ Route::get('callback/{reference}', 'App\Http\Controllers\ChapaController@callbac
 
 
 
-Route::fallback(function(){
+Route::fallback(function () {
     return Inertia::render('PageNotFound');
 });
 

@@ -1,6 +1,6 @@
 import TextInput from "@/Components/TextInput";
 import React, { useState } from "react";
-import { Head, Link, useForm,usePage  } from "@inertiajs/react";
+import { Head, Link, useForm, usePage } from "@inertiajs/react";
 import GuestLayout from "@/Layouts/GuestLayout";
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
@@ -18,13 +18,14 @@ function Payment() {
         firstName: "",
         lastName: "",
         phoneNumber: "",
-        amount: amount,
+        amount: amount || 20,
+        plan: "premium",
     });
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        post(route('pay'));
+        post(route("pay"));
     };
 
     return (
@@ -34,34 +35,7 @@ function Payment() {
                     <h2 className="text-2xl font-bold mb-4 text-center uppercase pb-4  ">
                         Payment Information
                     </h2>
-                    <form  onSubmit={handleSubmit} className="space-y-4">
-                        {/* <label
-                            htmlFor="firstName"
-                            className="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
-                        >
-                            <TextInput
-                                type="text"
-                                id="firstName"
-                                value={data.name}
-                                onChange={(e) =>
-                                    setData("name", e.target.value)
-                                }
-                                required
-                                autoComplete="firstName"
-                                isFocused={true}
-                                className="peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
-                                placeholder="firstName"
-                            />
-
-                            <span className="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white p-0.5 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs">
-                                First Name:
-                            </span>
-                            <InputError
-                                message={errors.name}
-                                className="mt-2"
-                            />
-                        </label> */}
-
+                    <form onSubmit={handleSubmit} className="space-y-4">
                         <div>
                             <InputLabel
                                 htmlFor="firstName"
@@ -159,6 +133,28 @@ function Payment() {
 
                             <InputError
                                 message={errors.amount}
+                                className="mt-2"
+                            />
+                        </div>
+
+                        <div>
+                            <InputLabel
+                                htmlFor="premium"
+                                value="Premium Plan:"
+                            />
+
+                            <TextInput
+                                type="radio"
+                                id="premium"
+                                value={data.plan}
+                                // onChange={(e) => setData("plan", e.target.value)}
+                                // isFocused={true}
+                                name="plan"
+                                selected={data.plan == "premium"}
+                            />
+
+                            <InputError
+                                message={errors.plan}
                                 className="mt-2"
                             />
                         </div>

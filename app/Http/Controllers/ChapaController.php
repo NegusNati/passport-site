@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Subscription;
 use Chapa\Chapa\Facades\Chapa as Chapa;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,12 @@ class ChapaController extends Controller
             'firstName' => 'required|alpha:ascii|max:255|min:3',
             'lastName' => 'required|alpha:ascii|max:255|min:3',
             'phoneNumber' => 'required|digits:10|numeric|starts_with:09,07',
+            'plan' => 'required',
         ]);
+
+
+
+
 
 
 
@@ -59,7 +65,7 @@ class ChapaController extends Controller
         // dd($data);
         $payment = Chapa::initializePayment($data);
         //now Check if the payment returns 'success' or 'fail'
-          dd($payment);
+        dd($payment);
 
         if ($payment['status'] !== 'success') {
             // notify something went wrong
@@ -67,6 +73,7 @@ class ChapaController extends Controller
             return;
         }
         // dd($payment);
+
 
         //if payment is successful
         return redirect($payment['data']['checkout_url']);
@@ -76,7 +83,7 @@ class ChapaController extends Controller
      * Obtain Rave callback information
      * @return void
      */
-    public function callback($reference)
+    public function callback($reference, Request $request)
     {
 
         $data = Chapa::verifyTransaction($reference);
@@ -85,7 +92,11 @@ class ChapaController extends Controller
         //if payment is successful
         if ($data['status'] ==  '   ') {
 
-
+            $user = $request->user();
+            $subscription = $user->subscription ?: new Subscription();
+            $subscription->user_id = $user->id;
+            $subscription->plan = $request->plan;
+            $subscription->save();
             dd($data);
         } else {
             //oopsie something ain't right.

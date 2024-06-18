@@ -168,7 +168,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                 <div className="rounded-2xl border border-indigo-600 p-6 shadow-sm ring-1 ring-indigo-600 sm:order-last sm:px-8 lg:p-12 bg-white/[0.5]">
                                     <div className="text-center">
                                         <h2 className="text-lg font-medium text-gray-900">
-                                            Pro
+                                            Premium
                                             <span className="sr-only">
                                                 Plan
                                             </span>
@@ -208,7 +208,27 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                                 Latest passport information{" "}
                                             </span>
                                         </li>
+                                        <li className="flex items-center gap-1">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                strokeWidth="1.5"
+                                                stroke="currentColor"
+                                                className="size-5 text-indigo-700"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    d="M4.5 12.75l6 6 9-13.5"
+                                                />
+                                            </svg>
 
+                                            <span className="text-gray-700 capitalize">
+                                                {" "}
+                                                1000 queries per hour{" "}
+                                            </span>
+                                        </li>
                                         <li className="flex items-center gap-1">
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -253,27 +273,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                             </span>
                                         </li>
 
-                                        <li className="flex items-center gap-1">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                strokeWidth="1.5"
-                                                stroke="currentColor"
-                                                className="size-5 text-indigo-700"
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    d="M4.5 12.75l6 6 9-13.5"
-                                                />
-                                            </svg>
 
-                                            <span className="text-gray-700 capitalize">
-                                                {" "}
-                                                unlimmited queries{" "}
-                                            </span>
-                                        </li>
 
                                         <li className="flex items-center gap-1">
                                             <svg
@@ -333,7 +333,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                 <div className="rounded-2xl border border-blue-200 p-6 shadow-sm sm:px-8 lg:p-12 bg-white/[0.5]">
                                     <div className="text-center">
                                         <h2 className="text-lg font-medium text-gray-900">
-                                            Starter
+                                            Standard
                                             <span className="sr-only">
                                                 Plan
                                             </span>
@@ -342,11 +342,11 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                         <p className="mt-2 sm:mt-4">
                                             <strong className="text-3xl font-bold text-gray-900 sm:text-4xl">
                                                 {" "}
-                                                10 Birr{" "}
+                                                Free
                                             </strong>
 
                                             <span className="text-sm font-medium text-gray-700">
-                                                for 12 + 12 Hours
+                                                {" "}For limited time
                                             </span>
                                         </p>
                                     </div>
@@ -371,6 +371,27 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                             <span className="text-gray-700 capitalize">
                                                 {" "}
                                                 passport information{" "}
+                                            </span>
+                                        </li>
+                                        <li className="flex items-center gap-1">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                strokeWidth="1.5"
+                                                stroke="currentColor"
+                                                className="size-5 text-indigo-700"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    d="M4.5 12.75l6 6 9-13.5"
+                                                />
+                                            </svg>
+
+                                            <span className="text-gray-700 capitalize">
+                                                {" "}
+                                                120 queries per hour{" "}
                                             </span>
                                         </li>
 
