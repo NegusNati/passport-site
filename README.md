@@ -11,7 +11,7 @@ https://github.com/NegusNati/passport-site/assets/84500378/7acb2146-307e-44dc-a5
 - Landing Page    
 <img src="https://github.com/NegusNati/Airbnb-Experiences-Clone/assets/84500378/d26ace89-7e34-4cab-a540-ffeffc67068d"  >
 
-- Pricing Page
+- Pricing Section
  <img src="https://github.com/NegusNati/Airbnb-Experiences-Clone/assets/84500378/0b3c62af-62d3-4827-b7e5-913e2ba8a317"  >
 
 - Payment Integration with Chapa
