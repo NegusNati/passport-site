@@ -16,7 +16,7 @@ export default function Dashboard({ auth }) {
             ?.classList.add("!flex-row");
         document.getElementById("background")?.classList.add("!hidden");
     };
-    console.log(idValue);
+    // console.log(idValue);
     return (
         <AuthenticatedLayout
             user={auth.user}
