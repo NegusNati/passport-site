@@ -51,7 +51,7 @@ class AppServiceProvider extends ServiceProvider
                             'message' => 'You have exceeded the hourly rate limit for premium users.',
                         ])->toResponse(request())->setStatusCode(429);
                     })
-                : Limit::perHour(5)->by($user->id)->response(function () {  //TODO: change to 120 
+                : Limit::perHour(5)->by($user->id)->response(function () {  //TODO: change to 120
                         return Inertia::render('Errors/RateLimitExceeded', [
                             'message' => 'You have exceeded the hourly rate limit for standard users.',
                         ])->toResponse(request())->setStatusCode(429);

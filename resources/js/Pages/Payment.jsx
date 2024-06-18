@@ -32,6 +32,7 @@ function Payment() {
         <>
             <main className=" min-h-screen  bg-gray-100 dark:bg-gray-900  bg-gradient-to-r from-rose-100 to-teal-100 pt-20 pb-20">
                 <div className="max-w-md mx-auto p-4 pt-6 pb-6 mb-4 bg-white rounded shadow-md dark:bg-gray-800">
+                <Head title="Premium" />
                     <h2 className="text-2xl font-bold mb-4 text-center uppercase pb-4  ">
                         Payment Information
                     </h2>
@@ -148,9 +149,9 @@ function Payment() {
                                 id="premium"
                                 value={data.plan}
                                 // onChange={(e) => setData("plan", e.target.value)}
-                                // isFocused={true}
+                                isFocused={true}
                                 name="plan"
-                                selected={data.plan == "premium"}
+                                selected={data.plan == "premium" ? true : false}
                             />
 
                             <InputError

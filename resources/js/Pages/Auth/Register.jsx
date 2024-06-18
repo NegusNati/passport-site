@@ -4,7 +4,7 @@ import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
-import { Head, Link, useForm, usePage } from "@inertiajs/react";
+import { Head, Link, useForm, usePage, router } from "@inertiajs/react";
 
 export default function Register() {
     const { props } = usePage();
@@ -17,6 +17,7 @@ export default function Register() {
             email: "",
             password: "",
             password_confirmation: "",
+            plan: "",
         });
 
     useEffect(() => {
@@ -27,14 +28,11 @@ export default function Register() {
 
     const submit = (e) => {
         e.preventDefault();
-
-        post(route("register"), {
-            onSuccess: () => {
-                if (amount) {
-                    route("payment", { amount: 20 });
-                }
-            },
-        });
+        post(route("register"));
+        if (amount) {
+            console.log("amount", amount);
+            router.visit(route("payment", { amount: amount }));
+        }
     };
 
     return (
@@ -153,6 +151,27 @@ export default function Register() {
                         className="mt-2"
                     />
                 </div>
+                <div>
+                            <InputLabel
+                                htmlFor="premium"
+                                value="Premium Plan:"
+                            />
+
+                            <TextInput
+                                type="checkbox"
+                                name="plan"
+                                className="mt-1 "
+                                autoComplete="plan"
+                                checked={data.plan === 'premium'} // Assuming 'premium' is the value you want to set when checked
+                                onChange={(e) => setData("plan",  e.target.checked? 'premium' : 'free')}
+                                id="premium"
+                            />
+
+                            <InputError
+                                message={errors.plan}
+                                className="mt-2"
+                            />
+                        </div>
 
                 <div className="flex items-center justify-end mt-4">
                     <Link

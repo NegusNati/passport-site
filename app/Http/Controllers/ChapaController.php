@@ -65,7 +65,7 @@ class ChapaController extends Controller
         // dd($data);
         $payment = Chapa::initializePayment($data);
         //now Check if the payment returns 'success' or 'fail'
-        dd($payment);
+        // dd($payment);
 
         if ($payment['status'] !== 'success') {
             // notify something went wrong
@@ -87,10 +87,10 @@ class ChapaController extends Controller
     {
 
         $data = Chapa::verifyTransaction($reference);
-        dd($data);
+        // dd($data);
 
         //if payment is successful
-        if ($data['status'] ==  '   ') {
+        if ($data['status'] == 'success') {
 
             $user = $request->user();
             $subscription = $user->subscription ?: new Subscription();

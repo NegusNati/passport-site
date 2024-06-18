@@ -34,7 +34,7 @@ class RegisteredUserController extends Controller
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'phone_number' => 'required|digits:10|numeric|starts_with:09,07',
-            'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
+            'email' => 'required|string|lowercase|email|max:255|unique:' . User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -50,6 +50,8 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+
+        return $request->plan === 'premium' ? redirect()->route('payment', ['amount' => 20]) : redirect()->route('dashboard');
+        // return redirect(route('dashboard', absolute: false));
     }
 }
