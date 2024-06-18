@@ -2,6 +2,12 @@
 
 A simple way to look if your passport is read to collect and which day of the week you should collect. it is Role & Permission based site with PDF to SQLite parsing, Queue operations for PDF parsing, Automated daily updates, Payment integration with [Chapa payment gateway](https://chapa.co)!
 
+
+- Current Demo  
+
+https://github.com/NegusNati/passport-site/assets/84500378/7acb2146-307e-44dc-a599-2376942c2370
+
+
 - Landing Page    
 <img src="https://github.com/NegusNati/Airbnb-Experiences-Clone/assets/84500378/d26ace89-7e34-4cab-a540-ffeffc67068d"  >
 
