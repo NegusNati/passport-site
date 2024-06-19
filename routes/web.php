@@ -77,13 +77,13 @@ Route::get('/payment', function () {
     return Inertia::render('Payment', [
         'amount' => request()->amount,
     ]);
-})->name('payment');
+})->middleware('auth')->name('payment');
 // The route that the button calls to initialize payment
 
-Route::post('/pay', 'App\Http\Controllers\ChapaController@initialize')->name('pay');
+Route::post('/pay', 'App\Http\Controllers\ChapaController@initialize')->middleware('auth')->name('pay');
 
 // The callback url after a payment
-Route::get('callback/{reference}', 'App\Http\Controllers\ChapaController@callback')->name('callback');
+Route::get('callback/{reference}', 'App\Http\Controllers\ChapaController@callback')->middleware('auth')->name('callback');
 
 
 

@@ -58,6 +58,14 @@ class AppServiceProvider extends ServiceProvider
                     });
             }
 
+            if (optional($user)->id) {
+                return Limit::perHour(5)->by($user->id)->response(function () {
+                    return Inertia::render('Errors/RateLimitExceeded', [
+                        'message' => 'You have exceeded the hourly rate limit for authenticated users without a subscription.',
+                    ])->toResponse(request())->setStatusCode(429);
+                });
+            }
+
             return Limit::perHour(60)->by(optional($user)->id ?: $request->ip())->response(function () {
                 return Inertia::render('Errors/RateLimitExceeded', [
                     'message' => 'You have exceeded the hourly rate limit for unauthenticated users.',

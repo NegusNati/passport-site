@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Subscription;
+use App\Models\User;
 use Chapa\Chapa\Facades\Chapa as Chapa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 
 class ChapaController extends Controller
@@ -87,21 +90,52 @@ class ChapaController extends Controller
      */
     public function callback($reference, Request $request)
     {
-
         $data = Chapa::verifyTransaction($reference);
-        // dd($data);
 
-        //if payment is successful
         if ($data['status'] == 'success') {
+            Log::info('in Subscription created for user');
 
-            $user = $request->user();
-            $subscription = $user->subscription ?: new Subscription();
-            $subscription->user_id = $user->id;
-            $subscription->plan = $request->plan;
-            $subscription->save();
-            dd($data);
+            // Retrieve the user by ID if possible
+            $user = Auth::user();
+            Log::alert($user);
+
+            if ($user !== null) {
+                Log::info($user->first_name);
+                $subscription = $user->subscription ?: new Subscription();
+                $subscription->user_id = $user->id;
+                $subscription->plan = $request->plan;
+                $subscription->save();
+
+                Log::info('Subscription created for user');
+            } else {
+                // If user is not authenticated, try to retrieve the user ID from the request data
+                $userId = $data['user_id'] ?? null; // Adjust this line according to how the user ID is available in your data
+                if ($userId) {
+                    $user = User::findOrFail($userId);
+                    Log::info($user);
+                    if ($user) {
+                        Auth::login($user);
+                        Log::info('User authenticated in callback:', ['user_id' => $user->id, 'first_name' => $user->first_name]);
+
+                        $subscription = $user->subscription ?: new Subscription();
+                        $subscription->user_id = $user->id;
+                        $subscription->plan = $request->plan;
+                        $subscription->save();
+
+                        Log::info('Subscription created for user');
+                    } else {
+                        Log::info('User not found');
+                    }
+                } else {
+                    Log::info('User ID not available in data');
+                }
+            }
+
+            return Inertia::location(route('dashboard'));
         } else {
-            //oopsie something ain't right.
+            Log::info($data);
         }
+
+        return Inertia::location(route('dashboard'));
     }
 }
