@@ -152,7 +152,7 @@ function TableView({ auth, passports }) {
                                             href={route("passport.showDetail", {
                                                 id: passport.id,
                                             })}
-                                            className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-[#FF2D20] transition-colors duration-300"
+                                            className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white  transition ease-in-out delay-100 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-[#FF2D20] duration-200"
                                         >
                                             Detail
                                         </Link>

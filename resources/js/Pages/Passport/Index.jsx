@@ -6,6 +6,7 @@ import TextInput from "@/Components/TextInput";
 import Authenticated from "@/Layouts/AuthenticatedLayout";
 import { Head, Link, useForm } from "@inertiajs/react";
 import InputError from "@/Components/InputError";
+import DismissibleBanner from "@/Components/DismissibleBanner";
 
 function Index({ auth }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -36,7 +37,7 @@ function Index({ auth }) {
             }
         >
             <Head title="Find Passport" />
-
+           
             <main className="mx-4 mt-6 selection:bg-[#FF2D20] selection:text-white ">
                 <form
                     onSubmit={submit}
@@ -141,7 +142,7 @@ function Index({ auth }) {
                         </div>
                     </div>
                     <div className="flex items-center justify-end mt-4">
-                        <PrimaryButton className="mt-4">
+                        <PrimaryButton className="mt-4 transition ease-in-out delay-100 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-100">
                             Find Passport
                         </PrimaryButton>
                     </div>

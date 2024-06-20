@@ -13,7 +13,6 @@ const days = [
 ];
 
 function ShowDetail({ auth, passport }) {
-
     function getDayOfWeek(firstName) {
         const letter = firstName.charAt(0).toLowerCase();
         let days = [];
@@ -82,17 +81,17 @@ function ShowDetail({ auth, passport }) {
                         <p className="text-xl text-center ">Passport</p>
                     </div>
                     <div className="space-y-2  text-sm pb-8 pt-8 m-4 pl-4 capitalize ">
-                        <p className=" ">
+                        <p>
                             First Name : <strong>{passport.firstName}</strong>
                         </p>
-                        <p className=" ">
+                        <p>
                             Middle Name : <strong>{passport.middleName}</strong>
                         </p>
-                        <p className=" ">
+                        <p>
                             Last Name : <strong>{passport.lastName}</strong>
                         </p>
 
-                        <p className="  ">
+                        <p>
                             You Can Rrecive After :{" "}
                             <strong className="">
                                 {formatDate(passport.dateOfPublish)} G.C.
@@ -104,6 +103,9 @@ function ShowDetail({ auth, passport }) {
                         <p>
                             Day Of the Week :{" "}
                             <strong>{getDayOfWeek(passport.firstName)}</strong>
+                        </p>
+                        <p>
+                            Exact Time : <strong>3:00 - 9:00 LT</strong>
                         </p>
                     </div>
                     <div className=" space-y-2 font-light text-sm pb-1 mt-4  pt-4 flex flex-col items-center">

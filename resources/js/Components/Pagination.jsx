@@ -2,13 +2,13 @@ import { Link } from "@inertiajs/react";
 
 const Pagination = ({ passports, handlePageChange }) => {
     return (
-        <div className=" font-semibold text-sm text-gray-700 dark:text-gray-300 flex justify-between border-t border-gray-200 pt-4 px-4 ">
+        <div className=" font-semibold text-sm text-gray-700 dark:text-gray-300 flex justify-between border-t border-gray-200 pt-6   px-4 ">
             {passports.prev_page_url && (
                 <Link
                     href={passports.prev_page_url}
-                    className="pagination-link"
+                    className="pagination-link transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:text-[#FF2D20] duration-100"
                     onClick={(e) => {
-                  
+
                         handlePageChange(passports.prev_page_url);
                     }}
                 >
@@ -35,7 +35,7 @@ const Pagination = ({ passports, handlePageChange }) => {
             {passports.next_page_url && (
                 <Link
                     href={passports.next_page_url}
-                    className="pagination-link"
+                    className="pagination-link transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:text-[#FF2D20] duration-100"
                     onClick={(e) => {
 
                         handlePageChange(passports.next_page_url);

@@ -1,3 +1,4 @@
+import DismissibleBanner from "@/Components/DismissibleBanner";
 import InputLabel from "@/Components/InputLabel";
 import TextInput from "@/Components/TextInput";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
@@ -27,6 +28,7 @@ export default function Dashboard({ auth }) {
             }
         >
             <Head title="Dashboard" />
+            <DismissibleBanner/>
 
             <div className="pt-12 py-12 pb-20 mb-40">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
