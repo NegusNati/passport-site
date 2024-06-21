@@ -25,7 +25,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
     return (
         <>
             <Head title="Welcome" />
-            <div className="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50 pb-10">
+            <div className="bg-gradient-to-r from-slate-100 to-slate-300 dark:from-slate-700 dark:to-zinc-900 dark:text-white/90 pb-10  rounded-xl pb-10">
                 <img
                     id="background"
                     className="absolute -left-20 top-0 max-w-[1100px]"
@@ -145,14 +145,14 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
 
                                 <div className="mt-8 flex flex-wrap justify-center gap-4">
                                     <a
-                                        className="block w-full rounded bg-red-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-red-700 focus:outline-none focus:ring active:bg-red-500 sm:w-auto transition-all duration-600 ease-in-out"
+                                        className="block w-full rounded bg-red-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-red-700 focus:outline-none focus:ring active:bg-red-500 sm:w-auto transition ease-in-out delay-100 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
                                         href="#payment"
                                     >
                                         Find Passport
                                     </a>
 
                                     <a
-                                        className="block w-full rounded px-12 py-3 text-sm font-medium text-red-600 shadow hover:text-red-700 focus:outline-none focus:ring active:text-red-500 sm:w-auto"
+                                        className="block w-full rounded px-12 py-3 text-sm font-medium text-red-600 bg-gray-100 shadow hover:text-red-700 focus:outline-none focus:ring active:text-red-500 sm:w-auto  transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 hover:bg-red-700 hover:text-white duration-300"
                                         href={route("login")}
                                     >
                                        {auth ? "Dashboard" : "Log In"}
@@ -162,7 +162,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         </div>
                     </main>
 
-                    <section className="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50 py-12 pb-8 m-auto bg-gradient-to-r from-rose-100 to-teal-100 rounded-xl pb-10">
+                    <section className="dark:bg-gradient-to-r from-slate-700 to-zinc-900  dark:text-white/90 py-12 pb-8 m-auto bg-gradient-to-r from-rose-100 to-teal-100 rounded-xl pb-10">
                         <div className="mx-auto max-w-3xl px-4 pt-8 mb-8 sm:px-6 sm:py-20 lg:px-8">
                             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:items-center md:gap-8 ">
                                 <div className="rounded-2xl border border-indigo-600 p-6 shadow-sm ring-1 ring-indigo-600 sm:order-last sm:px-8 lg:p-12 bg-white/[0.5]">
@@ -325,7 +325,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                         // href="/payment"
                                         href={route("register", { amount: 20 })}
                                         // href={route("payment", { amount: 20 })}
-                                        className="mt-8 block rounded-full border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-indigo-700 hover:ring-1 hover:ring-indigo-700 focus:outline-none focus:ring active:text-indigo-500"
+                                        className="mt-8 block rounded-full border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-indigo-700 hover:ring-1 hover:ring-indigo-700 focus:outline-none focus:ring active:text-indigo-500  transition ease-in-out delay-100 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
                                     >
                                         Get Started
                                     </a>
@@ -466,7 +466,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     <a
                                         // href={route("payment", { amount: 10 })}
                                         href={route("register")}
-                                        className="mt-8 block rounded-full border border-indigo-600 bg-white px-12 py-3 text-center text-sm font-medium text-indigo-600 hover:ring-1 hover:ring-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
+                                        className="mt-8 block rounded-full border border-indigo-600 bg-white px-12 py-3 text-center text-sm font-medium text-indigo-600 hover:ring-1 hover:ring-indigo-600 focus:outline-none focus:ring active:text-indigo-500  transition ease-in-out delay-100 bg-blue-500 hover:-translate-y-1 hover:scale-110  duration-300"
                                     >
                                         Get Started
                                     </a>

@@ -30,9 +30,9 @@ export default function Dashboard({ auth }) {
             <Head title="Dashboard" />
             <DismissibleBanner/>
 
-            <div className="pt-12 py-12 pb-20 mb-40">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div className="pt-12 py-12 pb-20 mb-40 bg-gradient-to-r from-slate-100 to-slate-300 dark:from-slate-700 dark:to-zinc-900 dark:text-white/90">
+                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
+                    <div className="bg-gradient-to-r from-slate-500 to-slate-100 dark:from-slate-700 dark:to-zinc-900 dark:text-white/50 overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900 dark:text-gray-100 space-y-6">
                             <div className="">
                                 <Link

@@ -1,6 +1,6 @@
 function Footer() {
     return (
-        <footer className="bg-transparent w-full sm:pt-6 lg:px-8 mt-10">
+        <footer className="bg-gradient-to-r from-slate-100 to-slate-300 dark:from-slate-700 dark:to-zinc-900 dark:text-white/90 pb-10 sm:pt-6 lg:px-8 mt-10">
             <div className="mx-auto max-w-screen-xl px-4 pb-4 pt-16 sm:px-6 lg:px-8 lg:pt-24">
                 <div className="text-center">
                     {/* <h2 className="text-3xl font-extrabold text-gray-900 sm:text-5xl">

@@ -66,7 +66,7 @@ function ShowDetail({ auth, passport }) {
             }
         >
             <Head title="Details" />
-            <main className="mt-10 max-w-[990px] m-auto  mb-20 bg-white/80  rounded-2xl border border-transparent  hover:border-blue-500 transition-colors duration-300 group mt-8 py-8 selection:bg-[#FF2D20] selection:text-white ">
+            <main className="mt-10 max-w-[990px] m-auto  mb-20 bg-white/80 dark:bg-black/80  rounded-2xl border border-transparent  hover:border-blue-500 transition-colors duration-300 group mt-8 py-8 selection:bg-[#FF2D20] selection:text-white ">
                 <div className=" space-y-4 pb-2  flex flex-col space-x-2 justify-between py-6 ">
                     {/* <div className="flex items-center lg:w-[200px] ">
                                 <img src={`https://picsum.photos/seed/${Math.random(1,100)}/200`} width="50" className="rounded-xl w-10 h-10 object-cover " />
