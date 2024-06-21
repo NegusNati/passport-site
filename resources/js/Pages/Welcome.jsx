@@ -155,19 +155,19 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                         className="block w-full rounded px-12 py-3 text-sm font-medium text-red-600 bg-gray-100 shadow hover:text-red-700 focus:outline-none focus:ring active:text-red-500 sm:w-auto  transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 hover:bg-red-700 hover:text-white duration-300"
                                         href={route("login")}
                                     >
-                                       {auth ? "Dashboard" : "Log In"}
+                                        {auth ? "Dashboard" : "Log In"}
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </main>
 
-                    <section className="dark:bg-gradient-to-r from-slate-700 to-zinc-900  dark:text-white/90 py-12 pb-8 m-auto bg-gradient-to-r from-rose-100 to-teal-100 rounded-xl pb-10">
+                    <section className="dark:bg-gradient-to-r from-slate-700 to-zinc-900  dark:text-white/90 py-12 pb-8 m-auto bg-gradient-to-b from-slate-600 to-slate-300 dark:from-slate-600 dark:black/80 dark:text-white/90 rounded-xl pb-10">
                         <div className="mx-auto max-w-3xl px-4 pt-8 mb-8 sm:px-6 sm:py-20 lg:px-8">
                             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:items-center md:gap-8 ">
-                                <div className="rounded-2xl border border-indigo-600 p-6 shadow-sm ring-1 ring-indigo-600 sm:order-last sm:px-8 lg:p-12 bg-white/[0.5]">
+                                <div className="rounded-2xl border border-indigo-600 p-6 shadow-sm ring-1 ring-indigo-600 sm:order-last sm:px-8 lg:p-12 bg-white/80 dark:bg-black/80 text-black/80 dark:text-white/80">
                                     <div className="text-center">
-                                        <h2 className="text-lg font-medium text-gray-900">
+                                        <h2 className="text-lg font-medium">
                                             Premium
                                             <span className="sr-only">
                                                 Plan
@@ -175,12 +175,12 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                         </h2>
 
                                         <p className="mt-2 sm:mt-4">
-                                            <strong className="text-3xl font-bold text-gray-900 sm:text-4xl">
+                                            <strong className="text-3xl font-bold sm:text-4xl">
                                                 {" "}
                                                 20 Birr{" "}
                                             </strong>
 
-                                            <span className="text-sm font-medium text-gray-700 capitalize">
+                                            <span className="text-sm font-medium  capitalize">
                                                 for a Full month
                                             </span>
                                         </p>
@@ -203,7 +203,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                                 />
                                             </svg>
 
-                                            <span className="text-gray-700 capitalize">
+                                            <span className=" capitalize">
                                                 {" "}
                                                 Latest passport information{" "}
                                             </span>
@@ -224,7 +224,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                                 />
                                             </svg>
 
-                                            <span className="text-gray-700 capitalize">
+                                            <span className=" capitalize">
                                                 {" "}
                                                 1000 queries per hour{" "}
                                             </span>
@@ -245,7 +245,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                                 />
                                             </svg>
 
-                                            <span className="text-gray-700 capitalize">
+                                            <span className=" capitalize">
                                                 {" "}
                                                 Date of receival{" "}
                                             </span>
@@ -267,13 +267,11 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                                 />
                                             </svg>
 
-                                            <span className="text-gray-700 capitalize">
+                                            <span className=" capitalize">
                                                 {" "}
                                                 Detailed information{" "}
                                             </span>
                                         </li>
-
-
 
                                         <li className="flex items-center gap-1">
                                             <svg
@@ -291,7 +289,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                                 />
                                             </svg>
 
-                                            <span className="text-gray-700 capitalize">
+                                            <span className=" capitalize">
                                                 {" "}
                                                 community support{" "}
                                             </span>
@@ -313,7 +311,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                                 />
                                             </svg>
 
-                                            <span className="text-gray-700">
+                                            <span className="">
                                                 {" "}
                                                 24/7 support{" "}
                                             </span>
@@ -331,9 +329,9 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     </a>
                                 </div>
 
-                                <div className="rounded-2xl border border-blue-200 p-6 shadow-sm sm:px-8 lg:p-12 bg-white/[0.5]">
+                                <div className="rounded-2xl border border-blue-200 p-6 shadow-sm sm:px-8 lg:p-12 bg-white/80 dark:bg-black/80 text-black/80 dark:text-white/80">
                                     <div className="text-center">
-                                        <h2 className="text-lg font-medium text-gray-900">
+                                        <h2 className="text-lg font-medium ">
                                             Standard
                                             <span className="sr-only">
                                                 Plan
@@ -341,13 +339,14 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                         </h2>
 
                                         <p className="mt-2 sm:mt-4">
-                                            <strong className="text-3xl font-bold text-gray-900 sm:text-4xl">
+                                            <strong className="text-3xl font-bold sm:text-4xl">
                                                 {" "}
                                                 Free
                                             </strong>
 
-                                            <span className="text-sm font-medium text-gray-700">
-                                                {" "}For limited time
+                                            <span className="text-sm font-medium">
+                                                {" "}
+                                                For limited time
                                             </span>
                                         </p>
                                     </div>
@@ -369,7 +368,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                                 />
                                             </svg>
 
-                                            <span className="text-gray-700 capitalize">
+                                            <span className=" capitalize">
                                                 {" "}
                                                 passport information{" "}
                                             </span>
@@ -390,7 +389,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                                 />
                                             </svg>
 
-                                            <span className="text-gray-700 capitalize">
+                                            <span className=" capitalize">
                                                 {" "}
                                                 120 queries per hour{" "}
                                             </span>
@@ -412,7 +411,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                                 />
                                             </svg>
 
-                                            <span className="text-gray-700 capitalize">
+                                            <span className=" capitalize">
                                                 {" "}
                                                 Date of receival{" "}
                                             </span>
@@ -434,7 +433,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                                 />
                                             </svg>
 
-                                            <span className="text-gray-700 capitalize">
+                                            <span className=" capitalize">
                                                 {" "}
                                                 Detailed information{" "}
                                             </span>
@@ -456,7 +455,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                                 />
                                             </svg>
 
-                                            <span className="text-gray-700">
+                                            <span className="">
                                                 {" "}
                                                 Help center access{" "}
                                             </span>
@@ -475,8 +474,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         </div>
                     </section>
 
-                 <Footer />
-
+                    <Footer />
                 </div>
             </div>
         </>
