@@ -49,10 +49,10 @@ function TableView({ auth, passports }) {
             }
         >
             <Head title="All Passports" />
-            <main className="  max-w-[990px] m-auto  mb-20 bg-gray-200 rounded-2xl border border-transparent  hover:border-blue-500 transition-colors duration-300 group mt-8 py-8 selection:bg-[#FF2D20] selection:text-white ">
+            <main className="  max-w-[990px] m-auto  mb-20 bg-gray-200 rounded-2xl border border-transparent  hover:border-blue-500 transition-colors duration-300 group mt-8 py-8 selection:bg-[#FF2D20] selection:text-white bg-gradient-to-b from-slate-400 to-slate-100 dark:from-slate-400  dark:text-white/50 overflow-hidden shadow-sm sm:rounded-lg ">
                 <div >
                     <div className="flex justify-center items-center">
-                        <h2 className="font-bold text-2xl text-black-300 dark:text-black leading-tight pb-4 capitalize  ">
+                        <h2 className="font-bold text-2xl text-white dark:text-black leading-tight pb-4 capitalize  ">
                             All Latest Passports
                         </h2>
                         {/* <div className="flex items-center">
@@ -95,7 +95,7 @@ function TableView({ auth, passports }) {
                         </div> */}
                     </div>
                 </div>
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto ">
                     <table className="min-w-full divide-y-2 divide-gray-200 bg-white dark:bg-gray-300 text-sm p-4">
                         <thead className="ltr:text-left rtl:text-right">
                             <tr className="font-semibold">
