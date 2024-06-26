@@ -323,7 +323,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                         // href="/payment"
                                         href={route("register", { amount: 20 })}
                                         // href={route("payment", { amount: 20 })}
-                                        className="mt-8 block rounded-full border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-indigo-700 hover:ring-1 hover:ring-indigo-700 focus:outline-none focus:ring active:text-indigo-500  transition ease-in-out delay-100 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
+                                        className="mt-8 block rounded-full border border-indigo-600  px-12 py-3 text-center text-sm font-medium text-white  hover:ring-1 hover:ring-indigo-700 focus:outline-none focus:ring active:text-indigo-500  transition ease-in-out delay-100 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
                                     >
                                         Get Started
                                     </a>
