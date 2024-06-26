@@ -10,7 +10,7 @@ import Footer from "@/Components/Footer";
 export default function Authenticated({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
-        const savedTheme = localStorage.getItem('theme') || 'system';
+    const savedTheme = localStorage.getItem("theme") || "system";
 
     return (
         <div className="min-h-screen bg-gradient-to-r from-slate-100 to-slate-300 dark:from-slate-700 dark:to-zinc-900 dark:text-white/90 m-auto selection:bg-[#FF2D20] selection:text-white">
@@ -63,6 +63,7 @@ export default function Authenticated({ user, header, children }) {
                                     </Dropdown.Trigger>
 
                                     <Dropdown.Content>
+                                        <ThemeSelector />
                                         <Dropdown.Link
                                             href={route("profile.edit")}
                                         >
@@ -75,7 +76,6 @@ export default function Authenticated({ user, header, children }) {
                                         >
                                             Log Out
                                         </Dropdown.Link>
-                                        <ThemeSelector />
                                     </Dropdown.Content>
                                 </Dropdown>
                             </div>

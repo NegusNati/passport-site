@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PDFToSQLite;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 
 use function Pest\Laravel\get;
@@ -125,7 +126,9 @@ class PassportSearchController extends Controller
     {
 
         // $passports = PDFToSQLite::latest()->simplePaginate(50)->fragment("fragment-id");
-        $passports = PDFToSQLite::latest()->simplePaginate(30);
+        // $passports = PDFToSQLite::latest()->simplePaginate(30);
+        $passports = PDFToSQLite::query()->orderBy('id', 'desc')->simplePaginate(30);
+
 
         return Inertia::render('Passport/TableView', [
             'passports' => $passports,
