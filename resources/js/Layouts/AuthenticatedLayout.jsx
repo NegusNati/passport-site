@@ -3,6 +3,7 @@ import ApplicationLogo from "@/Components/ApplicationLogo";
 import Dropdown from "@/Components/Dropdown";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
+import ThemeSelector from "@/Components/ThemeSelector";
 import { Link } from "@inertiajs/react";
 import Footer from "@/Components/Footer";
 
@@ -73,6 +74,7 @@ export default function Authenticated({ user, header, children }) {
                                         >
                                             Log Out
                                         </Dropdown.Link>
+                                        <ThemeSelector />
                                     </Dropdown.Content>
                                 </Dropdown>
                             </div>
