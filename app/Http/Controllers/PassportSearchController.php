@@ -56,22 +56,42 @@ class PassportSearchController extends Controller
         $lastName = $request->input('lastName');
 
         // Dynamically add conditions based on the presence of input values
+        // if (!empty($requestNumber)) {
+        //     $query->where('requestNumber', 'LIKE', '%'. $requestNumber. '%');
+        // }
+        // if (!empty($firstName)) {
+        //     $query->orWhere('firstName', 'LIKE', '%'. $firstName. '%');
+        // }
+        // if (!empty($middleName)) {
+        //     $query->orWhere('middleName', 'LIKE', '%'. $middleName. '%');
+        // }
+        // if (!empty($lastName)) {
+        //     $query->orWhere('lastName', 'LIKE', '%'. $lastName. '%');
+        // }
+
+        // Check if requestNumber is provided
         if (!empty($requestNumber)) {
-            $query->where('requestNumber', 'LIKE', '%'. $requestNumber. '%');
-        }
-        if (!empty($firstName)) {
-            $query->orWhere('firstName', 'LIKE', '%'. $firstName. '%');
-        }
-        if (!empty($middleName)) {
-            $query->orWhere('middleName', 'LIKE', '%'. $middleName. '%');
-        }
-        if (!empty($lastName)) {
-            $query->orWhere('lastName', 'LIKE', '%'. $lastName. '%');
+            $query->where('requestNumber', 'LIKE', '%' . $requestNumber . '%');
+        } else {
+            // If requestNumber is not provided, check for the name fields
+            if (!empty($firstName) || !empty($middleName) || !empty($lastName)) {
+                $query->where(function ($q) use ($firstName, $middleName, $lastName) {
+                    if (!empty($firstName)) {
+                        $q->where('firstName', 'LIKE', '%' . $firstName . '%');
+                    }
+                    if (!empty($middleName)) {
+                        $q->where('middleName', 'LIKE', '%' . $middleName . '%');
+                    }
+                    if (!empty($lastName)) {
+                        $q->where('lastName', 'LIKE', '%' . $lastName . '%');
+                    }
+                });
+            }
         }
 
         $passports = $query->get(); // Execute the query
 
-            // dd($passports);
+        // dd($passports);
 
         return Inertia::render(
             'Passport/Show',
@@ -134,7 +154,6 @@ class PassportSearchController extends Controller
             'passports' => $passports,
 
         ]);
-
     }
 
     /**
@@ -142,6 +161,5 @@ class PassportSearchController extends Controller
      */
     public function destroy(string $id)
     {
-
     }
 }
