@@ -1,30 +1,36 @@
 // ThemeContext.js
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-    const [theme, setTheme] = useState('system'); // Default to system
+    const [theme, setTheme] = useState("system"); // Default to system
 
     useEffect(() => {
-        const savedTheme = localStorage.getItem('theme') || 'system';
+        const savedTheme = localStorage.getItem("theme") || "system";
         setTheme(savedTheme);
         applyTheme(savedTheme);
     }, []);
 
     const applyTheme = (newTheme) => {
-        if (newTheme === 'dark') {
-            document.documentElement.classList.add('dark');
-        } else if (newTheme === 'light') {
-            document.documentElement.classList.remove('dark');
+        if (newTheme === "dark") {
+            document.documentElement.classList.add("dark", "fake-dark-mode");
+        } else if (newTheme === "light") {
+            document.documentElement.classList.remove("dark", "fake-dark-mode");
         } else {
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                document.documentElement.classList.add('dark');
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                document.documentElement.classList.add(
+                    "dark",
+                    "fake-dark-mode"
+                );
             } else {
-                document.documentElement.classList.remove('dark');
+                document.documentElement.classList.remove(
+                    "dark",
+                    "fake-dark-mode"
+                );
             }
         }
-        localStorage.setItem('theme', newTheme);
+        localStorage.setItem("theme", newTheme);
     };
 
     const handleThemeChange = (newTheme) => {

@@ -9,14 +9,26 @@ export default {
         "./resources/views/**/*.blade.php",
         "./resources/js/**/*.jsx",
     ],
-    darkMode: 'class', // Enable class-based dark mode
+    darkMode: "class", // Enable class-based dark mode
     theme: {
         extend: {
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
             },
+
         },
     },
 
-    plugins: [forms, require("@tailwindcss/aspect-ratio")],
+    plugins: [
+        forms,
+        require("@tailwindcss/aspect-ratio"),
+        function ({ addUtilities }) {
+            const newUtilities = {
+                ".fake-dark-mode": {
+                    transition: "all 3s ease-in-out",
+                },
+            };
+            addUtilities(newUtilities, ["responsive", "hover"]);
+        },
+    ],
 };
