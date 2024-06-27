@@ -90,7 +90,9 @@ function ShowDetail({ auth, passport }) {
                         <p>
                             Last Name : <strong>{passport.lastName}</strong>
                         </p>
-
+                        <p>
+                            Request Number :{" "} <strong>{passport.requestNumber}</strong>
+                        </p>
                         <p>
                             You Can Rrecive After :{" "}
                             <strong className="">
