@@ -293,7 +293,7 @@ function PricingSection_Depriciated() {
                         <a
                             // href={route("payment", { amount: 10 })}
                             href={route("register")}
-                            className="mt-8 block rounded-full border border-indigo-600 bg-white px-12 py-3 text-center text-sm font-medium text-indigo-600 hover:ring-1 hover:ring-indigo-600 focus:outline-none focus:ring active:text-indigo-500  transition ease-in-out delay-100 bg-blue-500 hover:-translate-y-1 hover:scale-110  duration-300"
+                            className="mt-8 block rounded-full border border-indigo-600 px-12 py-3 text-center text-sm font-medium text-indigo-600 hover:ring-1 hover:ring-indigo-600 focus:outline-none focus:ring active:text-indigo-500  transition ease-in-out delay-100 bg-blue-500 hover:-translate-y-1 hover:scale-110  duration-300"
                         >
                             Get Started
                         </a>

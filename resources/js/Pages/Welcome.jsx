@@ -147,7 +147,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                 <div className="mt-8 flex flex-wrap justify-center gap-4">
                                     <a
                                         className="block w-full rounded px-12 py-3 text-sm font-medium text-white shadow  focus:outline-none focus:ring active:bg-red-500 sm:w-auto transition ease-in-out delay-100 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
-                                        href="#payment"
+                                        href="#pricing"
                                     >
                                         Find Passport
                                     </a>
@@ -163,9 +163,9 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         </div>
                     </main>
 
-                    
 
-                    <PricingSection />
+
+                    <PricingSection id="pricing" />
                     <Footer />
                 </div>
             </div>

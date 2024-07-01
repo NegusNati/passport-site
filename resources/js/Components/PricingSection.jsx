@@ -17,40 +17,40 @@ const tiers = [
         ],
         cta: "Start Now",
     },
-    {
-        name: "Premium",
-        price: 20,
-        frequency: "Birr/month",
-        description: "Ideal for frequent Passport checking.",
-        features: [
-            "Latest passport information",
-            "1000 queries per hour",
-            "passport delivery date & time",
-            "Detailed information",
-            "Help center access",
-            "Priority email support",
-        ],
-        cta: "Start Now",
-    },
-    {
-        name: "Premium Plus",
-        price: 60,
-        frequency: "Birr/month",
-        description: "For Internet Cafe & Passport Registers.",
-        features: [
-            "Latest passport information",
-            "Unlimited queries per hour",
-            "Unlimited use of the system",
-            "passport delivery date & time",
-            "Detailed information",
-            "Help center access",
-            "Priority email support",
-            "24/7 Priority support",
-            "Dedicated account manager",
-            "Custom integrations",
-        ],
-        cta: "Start Now",
-    },
+    // {
+    //     name: "Premium",
+    //     price: 20,
+    //     frequency: "Birr/month",
+    //     description: "Ideal for frequent Passport checking.",
+    //     features: [
+    //         "Latest passport information",
+    //         "1000 queries per hour",
+    //         "passport delivery date & time",
+    //         "Detailed information",
+    //         "Help center access",
+    //         "Priority email support",
+    //     ],
+    //     cta: "Start Now",
+    // },
+    // {
+    //     name: "Premium Plus",
+    //     price: 60,
+    //     frequency: "Birr/month",
+    //     description: "For Internet Cafe & Passport Registers.",
+    //     features: [
+    //         "Latest passport information",
+    //         "Unlimited queries per hour",
+    //         "Unlimited use of the system",
+    //         "passport delivery date & time",
+    //         "Detailed information",
+    //         "Help center access",
+    //         "Priority email support",
+    //         "24/7 Priority support",
+    //         "Dedicated account manager",
+    //         "Custom integrations",
+    //     ],
+    //     cta: "Start Now",
+    // },
 ];
 
 export default function PricingSection() {
@@ -73,7 +73,8 @@ export default function PricingSection() {
                     features for accesing the latest inpormation about
                     Passports, delivery date of specific passports and more.
                 </p>
-                <div className="mt-16 grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0 ">
+                {/* <div className="mt-16 grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0 "> */}
+                <div className="mt-16 flex justify-center">
                     {tiers.map((tier) => (
                         <div
                             key={tier.name}
