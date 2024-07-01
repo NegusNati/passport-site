@@ -9,6 +9,7 @@ import { Head, Link, useForm, usePage, router } from "@inertiajs/react";
 export default function Register() {
     const { props } = usePage();
     const { amount } = props;
+    console.log("amount on register", amount);
     const { data, setData, post, processing, errors, reset, redirect } =
         useForm({
             first_name: "",
@@ -29,12 +30,14 @@ export default function Register() {
 
     const submit = (e) => {
         e.preventDefault();
-        post(route("register"));
+        post(route("register"), {
+            onSuccess: () => {
+                if (amount) {
+                    route("payment", { amount: amount });
+                }
+            },
+        });
 
-            console.log("amount", amount);
-            if (!(amount == "Free")) {
-                router.visit(route("payment", { amount: amount }));
-            }
 
     };
 
@@ -82,6 +85,7 @@ export default function Register() {
                         id="phone_number"
                         name="phone_number"
                         value={data.phone_number}
+                        type="number"
                         className="mt-1 block w-full"
                         autoComplete="phone_number"
                         isFocused={true}

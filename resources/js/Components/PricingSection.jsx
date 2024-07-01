@@ -120,14 +120,14 @@ export default function PricingSection() {
                                     {tier.cta}
                                 </a>
                             ) : (
-                                <a
-                                    href={route("register", {
-                                        amount: tier.price,
-                                    })}
-                                    className="mt-10 mb-auto mx-4  block rounded-md px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 hover:ring-indigo-700 focus:outline-none focus:ring active:text-indigo-500  transition ease-in-out delay-100 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
-                                >
-                                    {tier.cta}
-                                </a>
+                                    <a
+                                        href={route("register", {
+                                            amount: tier.price,
+                                        })}
+                                        className="mt-10 mb-auto mx-4  block rounded-md px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 hover:ring-indigo-700 focus:outline-none focus:ring active:text-indigo-500  transition ease-in-out delay-100 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
+                                    >
+                                        {tier.cta}
+                                    </a>
                             )}
                         </div>
                     ))}

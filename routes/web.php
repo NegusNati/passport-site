@@ -72,9 +72,7 @@ Route::options('{any}', function () {
 
 // The route that the button calls to initialize payment
 Route::get('/payment', function () {
-
-
-    return Inertia::render('Payment', [
+ return Inertia::render('Payment', [
         'amount' => request()->amount,
     ]);
 })->middleware('auth')->name('payment');

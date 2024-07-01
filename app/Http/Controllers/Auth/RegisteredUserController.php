@@ -19,9 +19,11 @@ class RegisteredUserController extends Controller
     /**
      * Display the registration view.
      */
-    public function create(): Response
+    public function create(Request $request): Response
     {
-        return Inertia::render('Auth/Register');
+        return Inertia::render('Auth/Register', [
+            'amount' => $request->query('amount', 0),
+        ]);
     }
 
     /**
@@ -51,8 +53,9 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
         Log::info('User logged in:', ['user_id' => $user->id, 'first_name' => $user->first_name]);
-
-        return $request->plan === 'premium' ? redirect()->route('payment', ['amount' => $request->amount == 'Free' ? 0 : $request->amount]) : redirect()->route('dashboard');
+        Log::info("After Uset Loged in");
+        
+        return $request->plan === 'premium' ? redirect()->route('payment', ['amount' => $request->amount]) : redirect()->route('dashboard');
         // return redirect(route('dashboard', absolute: false));
     }
 }
