@@ -31,7 +31,9 @@ export default function Register() {
         post(route("register"));
         if (amount) {
             console.log("amount", amount);
-            router.visit(route("payment", { amount: amount }));
+            if (!(amount == "Free")) {
+                router.visit(route("payment", { amount: amount }));
+            }
         }
     };
 
@@ -152,26 +154,25 @@ export default function Register() {
                     />
                 </div>
                 <div>
-                            <InputLabel
-                                htmlFor="premium"
-                                value="Premium Plan:"
-                            />
+                    <InputLabel htmlFor="premium" value="Premium Plan:" />
 
-                            <TextInput
-                                type="checkbox"
-                                name="plan"
-                                className="mt-1 "
-                                autoComplete="plan"
-                                checked={data.plan === 'premium'} // Assuming 'premium' is the value you want to set when checked
-                                onChange={(e) => setData("plan",  e.target.checked? 'premium' : 'free')}
-                                id="premium"
-                            />
+                    <TextInput
+                        type="checkbox"
+                        name="plan"
+                        className="mt-1 "
+                        autoComplete="plan"
+                        checked={data.plan === "premium"} // Assuming 'premium' is the value you want to set when checked
+                        onChange={(e) =>
+                            setData(
+                                "plan",
+                                e.target.checked ? "premium" : "free"
+                            )
+                        }
+                        id="premium"
+                    />
 
-                            <InputError
-                                message={errors.plan}
-                                className="mt-2"
-                            />
-                        </div>
+                    <InputError message={errors.plan} className="mt-2" />
+                </div>
 
                 <div className="flex items-center justify-end mt-4">
                     <Link
