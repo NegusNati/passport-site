@@ -18,7 +18,7 @@ function Payment() {
         firstName: "",
         lastName: "",
         phoneNumber: "",
-        amount: amount || 20,
+        amount: amount,
         plan: "premium",
     });
 
@@ -129,7 +129,7 @@ function Payment() {
                                 className="mt-1 block w-full"
                                 disabled
                                 name="amount"
-                                placeholder="09123456789"
+                                placeholder="60"
                             />
 
                             <InputError

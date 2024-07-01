@@ -19,7 +19,7 @@ const tiers = [
     },
     {
         name: "Premium",
-        price: "20",
+        price: 20,
         frequency: "Birr/month",
         description: "Ideal for frequent Passport checking.",
         features: [
@@ -34,7 +34,7 @@ const tiers = [
     },
     {
         name: "Premium Plus",
-        price: "60",
+        price: 60,
         frequency: "Birr/month",
         description: "For Internet Cafe & Passport Registers.",
         features: [
@@ -112,12 +112,23 @@ export default function PricingSection() {
                                     </li>
                                 ))}
                             </ul>
-                            <a
-                                href={route("register", { amount: tier.price })}
-                                className="mt-10 mb-auto mx-4  block rounded-md px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 hover:ring-indigo-700 focus:outline-none focus:ring active:text-indigo-500  transition ease-in-out delay-100 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
-                            >
-                                {tier.cta}
-                            </a>
+                            {tier.price == "Free" ? (
+                                <a
+                                    href={route("register")}
+                                    className="mt-10 mb-auto mx-4  block rounded-md px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 hover:ring-indigo-700 focus:outline-none focus:ring active:text-indigo-500  transition ease-in-out delay-100 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
+                                >
+                                    {tier.cta}
+                                </a>
+                            ) : (
+                                <a
+                                    href={route("register", {
+                                        amount: tier.price,
+                                    })}
+                                    className="mt-10 mb-auto mx-4  block rounded-md px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 hover:ring-indigo-700 focus:outline-none focus:ring active:text-indigo-500  transition ease-in-out delay-100 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"
+                                >
+                                    {tier.cta}
+                                </a>
+                            )}
                         </div>
                     ))}
                 </div>

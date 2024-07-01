@@ -18,6 +18,7 @@ export default function Register() {
             password: "",
             password_confirmation: "",
             plan: "",
+            amount: amount,
         });
 
     useEffect(() => {
@@ -29,12 +30,12 @@ export default function Register() {
     const submit = (e) => {
         e.preventDefault();
         post(route("register"));
-        if (amount) {
+
             console.log("amount", amount);
             if (!(amount == "Free")) {
                 router.visit(route("payment", { amount: amount }));
             }
-        }
+
     };
 
     return (

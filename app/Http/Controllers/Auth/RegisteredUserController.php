@@ -52,7 +52,7 @@ class RegisteredUserController extends Controller
         Auth::login($user);
         Log::info('User logged in:', ['user_id' => $user->id, 'first_name' => $user->first_name]);
 
-        return $request->plan === 'premium' ? redirect()->route('payment', ['amount' => 20]) : redirect()->route('dashboard');
+        return $request->plan === 'premium' ? redirect()->route('payment', ['amount' => $request->amount == 'Free' ? 0 : $request->amount]) : redirect()->route('dashboard');
         // return redirect(route('dashboard', absolute: false));
     }
 }
