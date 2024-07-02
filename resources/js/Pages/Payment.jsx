@@ -8,10 +8,6 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import Footer from "@/Components/Footer";
 
 function Payment() {
-    // const [firstName, setFirstName] = useState("");
-    // const [lastName, setLastName] = useState("");
-    // const [phoneNumber, setPhoneNumber] = useState("");
-    // const [amount, setAmount] = useState(20);
     const { props } = usePage();
     const { amount } = props;
 
