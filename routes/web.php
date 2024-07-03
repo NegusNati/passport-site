@@ -4,6 +4,8 @@ use App\Http\Controllers\PassportSearchController;
 use App\Http\Controllers\PDFToSQLiteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\TelegramPDFController_depreciated;
+
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -83,6 +85,12 @@ Route::post('/pay', 'App\Http\Controllers\ChapaController@initialize')->middlewa
 // The callback url after a payment
 Route::get('callback/{reference}', 'App\Http\Controllers\ChapaController@callback')->middleware('auth')->name('callback');
 
+
+
+//webhook for pdf Depreciated feature
+// Route::get('/set-webhook', [TelegramPDFController_depreciated::class, 'setWebhook']);
+// Route::post('/telegram/webhook', [TelegramPDFController_depreciated::class, 'handleWebhook']);
+// Route::post('/telegram/webhook', [TelegramPDFController::class, 'handleWebhook'])->middleware('throttle:rateLimiter');
 
 
 Route::fallback(function () {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Jobs\PDFToSQLiteJob;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
@@ -46,6 +47,10 @@ class PDFToSQLiteController extends Controller
         // return response()->json(['status' => 'success']);
     }
 
+
+
+
+
     public function create()
     {
         return view('pdf-store');
@@ -87,4 +92,28 @@ class PDFToSQLiteController extends Controller
     // dd($resp);
     // return response()->json(['status' => 'success']);
     // }
+
+
+
+
+
+
+//Depreciated
+//     public static function convertTelegramPDFToSQLite(String $pdfFilePath)
+//     {
+//        $path = $pdfFilePath;
+
+//        $filePath = storage_path('app/public/pdfs/' . basename($path));
+//        Log::info("Attempting to read file path: {$filePath}");
+//        // PDFToSQLiteJob::dispatch($filePath);
+//        dispatch(new PDFToSQLiteJob($filePath , date('Y-m-d')  , "Gotera, Addis Ababa", "Request_No" ));
+//        Log::info("After the dispatch");
+
+
+//        return Redirect::to('/');
+
+//    }
+
 }
+
+
