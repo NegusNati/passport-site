@@ -1,4 +1,5 @@
 import { Link } from "@inertiajs/react"
+import Welcome from './../../../../vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/Pages/Welcome';
 
 function RateLimitExceeded({ message }) {
     return (
@@ -39,10 +40,11 @@ function RateLimitExceeded({ message }) {
                         </Link>
 
                         <Link
-                            href={route("payment")}
+                            // href={route("payment")}
+                            href={route("welcome")}
                             className="w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600"
                         >
-                            Subscribe
+                            Welcome
                         </Link>
                     </div>
                 </div>
