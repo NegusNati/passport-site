@@ -1,9 +1,10 @@
-import { Link } from "@inertiajs/react"
+import { Head, Link } from "@inertiajs/react"
 import Welcome from './../../../../vendor/laravel/breeze/stubs/inertia-react-ts/resources/js/Pages/Welcome';
 
 function RateLimitExceeded({ message }) {
     return (
         <section className="bg-white dark:bg-gray-900   pt-12 pb-20 sm:pb-10 sm:pt-2 space-y-10">
+             <Head title="Too Many Requests" />
             <div className="container min-h-screen px-6 py-12 mx-auto lg:flex lg:items-center lg:gap-12 ">
                 <div className="wf-ull lg:w-1/2">
                     {/* <p className="text-sm font-medium text-blue-500 dark:text-blue-400">
@@ -44,7 +45,7 @@ function RateLimitExceeded({ message }) {
                             href={route("welcome")}
                             className="w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600"
                         >
-                            Welcome
+                            Welcome Page
                         </Link>
                     </div>
                 </div>
