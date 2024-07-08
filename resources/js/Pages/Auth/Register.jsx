@@ -158,7 +158,9 @@ export default function Register() {
                         className="mt-2"
                     />
                 </div>
-                <div>
+
+                {/* will be uncomented wehen we start premeum plan */}
+                {/* <div>
                     <InputLabel htmlFor="premium" value="Premium Plan:" />
 
                     <TextInput
@@ -177,7 +179,7 @@ export default function Register() {
                     />
 
                     <InputError message={errors.plan} className="mt-2" />
-                </div>
+                </div> */}
 
                 <div className="flex items-center justify-end mt-4">
                     <Link

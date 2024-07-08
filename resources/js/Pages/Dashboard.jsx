@@ -86,9 +86,7 @@ export default function Dashboard({ auth }) {
                                     className="flex items-start gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]"
                                 >
                                     <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-[#FF2D20]/10 sm:size-16">
-
-
-                                    {/* <svg
+                                        {/* <svg
                                             className="size-5 sm:size-6"
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
@@ -100,7 +98,6 @@ export default function Dashboard({ auth }) {
                                                 <path d="M12.751 6.047h2a.75.75 0 0 1 .75.75v.5a.75.75 0 0 1-.75.75h-2A.75.75 0 0 1 12 7.3v-.5a.75.75 0 0 1 .751-.753ZM12.751 10.047h2a.75.75 0 0 1 .75.75v.5a.75.75 0 0 1-.75.75h-2A.75.75 0 0 1 12 11.3v-.5a.75.75 0 0 1 .751-.753ZM4.751 14.047h10a.75.75 0 0 1 .75.75v.5a.75.75 0 0 1-.75.75h-10A.75.75 0 0 1 4 15.3v-.5a.75.75 0 0 1 .751-.753ZM4.75 18.047h7.5a.75.75 0 0 1 .75.75v.5a.75.75 0 0 1-.75.75h-7.5A.75.75 0 0 1 4 19.3v-.5a.75.75 0 0 1 .75-.753Z" />
                                             </g>
                                         </svg> */}
-
 
                                         <svg
                                             className="size-5 sm:size-6"
@@ -142,7 +139,6 @@ export default function Dashboard({ auth }) {
                                         />
                                     </svg>
                                 </Link>
-
                             </div>
 
                             <div className="">
@@ -151,9 +147,7 @@ export default function Dashboard({ auth }) {
                                     className="flex items-start gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]"
                                 >
                                     <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-[#FF2D20]/10 sm:size-16">
-
-
-                                    {/* <svg
+                                        {/* <svg
                                             className="size-5 sm:size-6"
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
@@ -166,19 +160,48 @@ export default function Dashboard({ auth }) {
                                             </g>
                                         </svg> */}
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
-  <defs>
-    <linearGradient id="telegramGradient" x1="0.6667" y1="0.1667" x2="0.4167" y2="0.75">
-      <stop stop-color="#37aee2" offset="0" />
-      <stop stop-color="#1e96c8" offset="1" />
-    </linearGradient>
-  </defs>
-  <circle cx="120" cy="120" r="120" fill="url(#telegramGradient)" />
-  <path fill="#c8daea" d="M98 175c-3.9 0-3.2-1.5-4.6-5.2L82 132.2l88-52.2" />
-  <path fill="#a9c9dd" d="M98 175c3 0 4.3-1.4 6-3l16-15.6-20-12" />
-  <path fill="#fff" d="M100 144.4l48.4 35.7c5.5 3 9.5 1.5 10.9-5.1l19.7-92.8c2-8-3.1-11.7-8.4-9.3L55 117.5c-7.9 3.2-7.8 7.6-1.4 9.5l29.7 9.3 68.7-43.3c3.2-2 6.2-.9 3.8 1.3" />
-</svg>
-
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 240 240"
+                                            className="size-7 shrink-0 self-center stroke-[#FF2D20]"
+                                        >
+                                            <defs>
+                                                <linearGradient
+                                                    id="telegramGradient"
+                                                    x1="0.6667"
+                                                    y1="0.1667"
+                                                    x2="0.4167"
+                                                    y2="0.75"
+                                                >
+                                                    <stop
+                                                        stop-color="#37aee2"
+                                                        offset="0"
+                                                    />
+                                                    <stop
+                                                        stop-color="#1e96c8"
+                                                        offset="1"
+                                                    />
+                                                </linearGradient>
+                                            </defs>
+                                            <circle
+                                                cx="120"
+                                                cy="120"
+                                                r="120"
+                                                fill="url(#telegramGradient)"
+                                            />
+                                            <path
+                                                fill="#c8daea"
+                                                d="M98 175c-3.9 0-3.2-1.5-4.6-5.2L82 132.2l88-52.2"
+                                            />
+                                            <path
+                                                fill="#a9c9dd"
+                                                d="M98 175c3 0 4.3-1.4 6-3l16-15.6-20-12"
+                                            />
+                                            <path
+                                                fill="#fff"
+                                                d="M100 144.4l48.4 35.7c5.5 3 9.5 1.5 10.9-5.1l19.7-92.8c2-8-3.1-11.7-8.4-9.3L55 117.5c-7.9 3.2-7.8 7.6-1.4 9.5l29.7 9.3 68.7-43.3c3.2-2 6.2-.9 3.8 1.3"
+                                            />
+                                        </svg>
                                     </div>
 
                                     <div className="pt-3 sm:pt-5">
@@ -187,7 +210,9 @@ export default function Dashboard({ auth }) {
                                         </h2>
 
                                         <p className="mt-4 text-sm/relaxed capitalize">
-                                        Register for automatic notification in Telegram for when your passport is ready for pick up.
+                                            Register for automatic notification
+                                            in Telegram for when your passport
+                                            is ready for pick up.
                                         </p>
                                     </div>
 
@@ -205,7 +230,6 @@ export default function Dashboard({ auth }) {
                                         />
                                     </svg>
                                 </Link>
-
                             </div>
                         </div>
                     </div>
