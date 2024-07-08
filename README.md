@@ -7,6 +7,9 @@ A simple way to look if your passport is read to collect and which day of the we
 
 https://github.com/NegusNati/passport-site/assets/84500378/7acb2146-307e-44dc-a599-2376942c2370
 
+- Rate Limmiting
+  
+https://github.com/NegusNati/passport-site/assets/84500378/3564eea0-9faf-4a6a-b2f8-62ced124da09
 
 - Landing Page    
 <img src="https://github.com/NegusNati/Airbnb-Experiences-Clone/assets/84500378/d26ace89-7e34-4cab-a540-ffeffc67068d"  >
