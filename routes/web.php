@@ -65,6 +65,9 @@ Route::get(
     }
 )->middleware('auth');
 
+Route::get('/telegram', function () {
+    return Inertia::render('Telegram/Index');
+})->middleware('auth')->name('telegram.index');
 
 
 Route::options('{any}', function () {

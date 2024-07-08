@@ -25,7 +25,7 @@ function Footer() {
                     <ul className="flex flex-wrap justify-center gap-4 text-xs lg:justify-end">
                         <li>
                             <a
-                                href="#"
+                                 href={route('privacy') + '#terms'}
                                 className="text-gray-500 transition hover:opacity-75"
                             >
                                 {" "}
@@ -35,7 +35,7 @@ function Footer() {
 
                         <li>
                             <a
-                                href={route('privacy')}
+                                href={route('privacy') + '#privacy'}
                                 className="text-gray-500 transition hover:opacity-75"
                             >
                                 {" "}
@@ -45,7 +45,7 @@ function Footer() {
 
                         <li>
                             <a
-                                href="#"
+                               href={route('privacy') + '#cookies'}
                                 className="text-gray-500 transition hover:opacity-75"
                             >
                                 {" "}

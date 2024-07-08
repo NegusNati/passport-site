@@ -123,7 +123,12 @@ function PrivacyPolicy({ auth }) {
                             <h1 className=" text-3xl font-bold text-center text-gray-900 dark:text-white pb-8 ">
                                 Privacy
                             </h1>
-                            <h2>Privacy Policy</h2>
+                            <h2
+                                id="privacy"
+                                className="text-2xl font-semibold  text-gray-900 dark:text-white  "
+                            >
+                                Our Privacy Policy
+                            </h2>
                             <p>
                                 This Privacy Policy includes important
                                 information about your personal data and we
@@ -136,7 +141,9 @@ function PrivacyPolicy({ auth }) {
                                 APIs, applications, email notifications, and
                                 tools regardless of how you use or access them.
                             </p>
-                            <h2>Overview</h2>
+                            <h2 className=" font-semibold  text-gray-900 dark:text-white ">
+                                Overview
+                            </h2>
                             <p>
                                 This Privacy Policy describes how we collect and
                                 use your personal information. We collect and
@@ -210,7 +217,12 @@ function PrivacyPolicy({ auth }) {
                                 personal information is protected and
                                 maintained.
                             </p>
-                            <h2>Cookies</h2>
+                            <h2
+                                id="cookies"
+                                className="text-2xl font-semibold  text-gray-900 dark:text-white "
+                            >
+                                Cookies
+                            </h2>
                             <p>
                                 Like many other websites, we use cookies to
                                 identify you as a user and to customize and
@@ -226,8 +238,52 @@ function PrivacyPolicy({ auth }) {
                                 do choose to disable cookies, it may limit your
                                 ability to use our website.
                             </p>
-                            <h2> Data Storage </h2>
 
+                            <h2
+                                id="terms"
+                                className="text-2xl font-semibold text-gray-900 dark:text-white"
+                            >
+                                Terms and Conditions
+                            </h2>
+                            <p>
+                                By using our website and services, you agree to
+                                the following terms and conditions:
+                            </p>
+                            <ul className="list-disc list-inside space-y-2">
+                                <li>
+                                    You must be at least 12 years old to use our
+                                    services.
+                                </li>
+                                <li>
+                                    You are responsible for maintaining the
+                                    confidentiality of your account and
+                                    password.
+                                </li>
+                                <li>
+                                    You agree not to use our services for any
+                                    illegal or unauthorized purposes.
+                                </li>
+                                <li>
+                                    We reserve the right to modify or
+                                    discontinue our services at any time without
+                                    notice.
+                                </li>
+                                <li>
+                                    We are not responsible for any damages or
+                                    losses resulting from the use of our
+                                    services.
+                                </li>
+                            </ul>
+                            <p>
+                                These terms and conditions are subject to change
+                                without notice. Your continued use of our
+                                website and services constitutes your acceptance
+                                of any updated terms and conditions.
+                            </p>
+                            <h2 className=" font-semibold  text-gray-900 dark:text-white ">
+                                {" "}
+                                Data Storage{" "}
+                            </h2>
                             <p>
                                 We will only retain personal information on our
                                 servers for as long as an account is active.
@@ -235,7 +291,10 @@ function PrivacyPolicy({ auth }) {
                                 information is stored on our servers for as long
                                 as necessarily obligated by law.
                             </p>
-                            <h2>Changes to the Privacy Policy</h2>
+                            <h2 className=" font-semibold  text-gray-900 dark:text-white ">
+                                {" "}
+                                Changes to the Privacy Policy
+                            </h2>
                             <p>
                                 We may update this Privacy Policy from time to
                                 time. If we do, we will notify you by email or
@@ -246,20 +305,22 @@ function PrivacyPolicy({ auth }) {
                                 Policy is posted, you will be bound by the
                                 updated Privacy Policy.
                             </p>
-                            <h2>Contact Us</h2>
+                            <h2 className=" font-semibold  text-gray-900 dark:text-white ">
+                                Contact Us
+                            </h2>
                             <p>
                                 If you have any questions about this Privacy
                                 Policy, please contact us at
                                 <a
-                                    href="mailto:info@passportEt.et"
+                                    href="mailto:negusnati@gmail.com"
                                     className="text-blue-500"
-                                >x
+                                >
                                     {" "}
-                                    info@passportet.com
+                                    negusnati@gmail.com
                                 </a>
                             </p>
                             <p>
-                                This Privacy Policy was last updated in June
+                                This Privacy Policy was last updated in July
                                 2024.
                             </p>
                         </div>
