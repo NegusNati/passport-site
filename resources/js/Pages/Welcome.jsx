@@ -135,13 +135,14 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     Is your Passport Ready?
                                     <strong className="font-extrabold text-red-700 sm:block">
                                         {" "}
-                                        Find Out Now.{" "}
+                                        Find Out Now!{" "}
                                     </strong>
                                 </h1>
 
                                 <p className="mt-4 sm:text-xl/relaxed">
-                                    You can look at the most recent passports
-                                    published by the government of Ethiopia.
+                                    You can look at the <span  className="text-red-700 font-semibold">latest</span>{" "}
+                                    passports published by the government of
+                                    Ethiopia.
                                 </p>
 
                                 <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -162,8 +163,6 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             </div>
                         </div>
                     </main>
-
-
 
                     <PricingSection id="pricing" />
                     <Footer />

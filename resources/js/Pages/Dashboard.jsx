@@ -54,14 +54,12 @@ export default function Dashboard({ auth }) {
 
                                     <div className="pt-3 sm:pt-5">
                                         <h2 className="text-xl font-semibold text-black dark:text-white">
-                                            Find Passport for pickup
+                                            Find your Passport for pickup
                                         </h2>
 
-                                        <p className="mt-4 text-sm/relaxed capitalize">
+                                        <p className="mt-4 text-sm/relaxed ">
                                             Do you want to see if your Passport
-                                            is ready for pick up? We have a
-                                            special offer for you. Just look at
-                                            it for free!
+                                            is ready for pick up? shearch for it by NAME or Request ID.
                                         </p>
                                     </div>
 
@@ -113,15 +111,12 @@ export default function Dashboard({ auth }) {
 
                                     <div className="pt-3 sm:pt-5">
                                         <h2 className="text-xl font-semibold text-black dark:text-white capitalize">
-                                            Look At all the Passports
+                                            Latest Passports for today
                                         </h2>
 
-                                        <p className="mt-4 text-sm/relaxed capitalize">
-                                            Do you want to see if your Passport
-                                            is ready for pick up? We have a
-                                            special offer for you. Just look at
-                                            it here, or search for it on the
-                                            website.
+                                        <p className="mt-4 text-sm/relaxed ">
+                                           The latest daily updated passports, look through all passports ranging from 2 years back. you can take advantage this information to get your passport.
+
                                         </p>
                                     </div>
 
@@ -209,7 +204,7 @@ export default function Dashboard({ auth }) {
                                             Telegram Notification
                                         </h2>
 
-                                        <p className="mt-4 text-sm/relaxed capitalize">
+                                        <p className="mt-4 text-sm/relaxed ">
                                             Register for automatic notification
                                             in Telegram for when your passport
                                             is ready for pick up.
