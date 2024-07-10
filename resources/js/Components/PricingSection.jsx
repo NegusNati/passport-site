@@ -13,7 +13,7 @@ const tiers = [
             "passport delivery date & time",
             "Detailed information",
             "Help center access",
-            "Email support",
+            "Telegram support",
         ],
         cta: "Start Now",
     },
@@ -87,14 +87,19 @@ export default function PricingSection() {
                                 {tier.description}
                             </p>
                             <p className="mt-6 flex items-baseline gap-x-1">
-                                <span className="text-4xl font-bold tracking-tight text-gray-900">
-                                    {tier.price === "Free"
+                                <span className="text-4xl sm:text-6xl font-bold tracking-tight text-gray-900">
+
+                                   {tier.price === "Free"
                                         ? "Free"
                                         : tier.price}
                                 </span>
+
                                 <span className="text-sm font-semibold leading-6 text-gray-600">
                                     {tier.frequency}
                                 </span>
+                            </p>
+                            <p className="mt-1 flex items-baseline gap-x-1 line-through  ">
+                            <span className="text-blue-900 font-semibold">50</span> Birr per month
                             </p>
                             <ul
                                 role="list"
