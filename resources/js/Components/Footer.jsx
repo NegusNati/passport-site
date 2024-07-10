@@ -111,13 +111,13 @@ function Footer() {
                             </div>
                         </li>
                             </ul>
-                    <ul className="mt-8 flex justify-center gap-6 sm:mt-0 lg:justify-end">
-                        <li>
+                    <ul className="mt-8 flex justify-center gap-6 sm:mt-0 lg:justify-end ">
+                        <li className="hover:-translate-y-1 hover:scale-110  hover:text-white duration-300">
                             <a
                                 href="https://x.com/negusnati"
                                 rel="noreferrer"
                                 target="_blank"
-                                className="text-gray-700 transition hover:opacity-75"
+                                className="text-gray-700 transition  hover:text-white hover:bg-black"
                             >
                                 <span className="sr-only">Twitter</span>
 
@@ -134,12 +134,12 @@ function Footer() {
                             </a>
                         </li>
 
-                        <li>
+                         <li className="hover:-translate-y-1 hover:scale-110  hover:text-white duration-300">
                             <a
                                 href="https://github.com/negusnati"
                                 rel="noreferrer"
                                 target="_blank"
-                                className="text-gray-700 transition hover:opacity-75"
+                                className="text-gray-700 transition hover:text-white hover:bg-black"
                             >
                                 <span className="sr-only">GitHub</span>
 
@@ -158,12 +158,12 @@ function Footer() {
                             </a>
                         </li>
 
-                        <li>
+                         <li className="hover:-translate-y-1 hover:scale-110  hover:text-white duration-300">
                             <a
                                 href="https://t.me/negusnati"
                                 rel="noreferrer"
                                 target="_blank"
-                                className="text-gray-700 transition hover:opacity-75"
+                                className="text-gray-700 transition hover:text-white hover:bg-black"
                             >
                                 <span className="sr-only">Telegram</span>
 
@@ -179,12 +179,12 @@ function Footer() {
                                 </svg>
                             </a>
                         </li>
-                        <li>
+                         <li className="hover:-translate-y-1 hover:scale-110  hover:text-white duration-300">
                             <a
                                 href="https://www.instagram.com/negusnati/"
                                 rel="noreferrer"
                                 target="_blank"
-                                className="text-gray-700 transition hover:opacity-75"
+                                className="text-gray-700 transition hover:text-white hover:bg-black"
                             >
                                 <span className="sr-only">Instagram</span>
 
@@ -202,12 +202,12 @@ function Footer() {
                                 </svg>
                             </a>
                         </li>
-                        <li>
+                         <li className="hover:-translate-y-1 hover:scale-110  hover:text-white duration-300">
                             <a
                                 href="https://www.linkedin.com/in/negusnati/"
                                 rel="noreferrer"
                                 target="_blank"
-                                className="text-gray-700 transition hover:opacity-75"
+                                className="text-gray-700 transition hover:text-white hover:bg-black"
                             >
                                 <span className="sr-only">LinkedIn</span>
                                 <svg
