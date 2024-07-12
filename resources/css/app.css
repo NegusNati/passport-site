@@ -7,3 +7,14 @@ html {
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
+@keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+
+

@@ -43,8 +43,8 @@ function TableView({ auth, passports }) {
         <Authenticated
             user={auth.user}
             header={
-                <h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight py-4">
-                    Latest Passports
+                <h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight py-4 capitalize">
+                    daily updated Passports {formatDate(new Date())}
                 </h2>
             }
         >
@@ -52,8 +52,8 @@ function TableView({ auth, passports }) {
             <main className="  max-w-[990px] m-auto  mb-20 bg-gray-200 rounded-2xl border border-transparent  hover:border-blue-500 transition-colors duration-300 group mt-8 py-8 selection:bg-[#FF2D20] selection:text-white bg-gradient-to-b from-slate-400 to-slate-100 dark:from-slate-400  dark:text-white/50 overflow-hidden shadow-sm sm:rounded-lg ">
                 <div >
                     <div className="flex justify-center items-center">
-                        <h2 className="font-bold text-2xl text-white dark:text-black leading-tight pb-4 capitalize  ">
-                            All Latest Passports
+                        <h2 className="font-bold text-3xl text-white dark:text-black leading-tight pb-4 capitalize   ">
+                            Latest Passports
                         </h2>
                         {/* <div className="flex items-center">
                             <select

@@ -20,6 +20,7 @@ export default {
     },
 
     plugins: [
+        
         forms,
         require("@tailwindcss/aspect-ratio"),
         function ({ addUtilities }) {
@@ -30,5 +31,6 @@ export default {
             };
             addUtilities(newUtilities, ["responsive", "hover"]);
         },
+
     ],
 };
