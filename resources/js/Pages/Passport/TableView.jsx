@@ -117,7 +117,7 @@ function TableView({ auth, passports }) {
                                 <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                                     Request Number
                                 </th>
-                                <th className="px-4 py-2"></th>
+                                <th className="px-4 py-2">   {"         "}  </th>
                             </tr>
                         </thead>
                         {data?.map((passport) => (
@@ -130,7 +130,7 @@ function TableView({ auth, passports }) {
                                     className="hover:bg-gray-100 cursor-pointer pl-4"
                                 >
                                     <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                                        {passport.id}
+                                        #{passport.id}
                                     </td>
                                     <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                                         {passport.firstName}
@@ -152,7 +152,7 @@ function TableView({ auth, passports }) {
                                             href={route("passport.showDetail", {
                                                 id: passport.id,
                                             })}
-                                            className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white  transition ease-in-out delay-100 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-[#FF2D20] duration-200"
+                                            className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white  transition ease-in-out delay-100  hover:-translate-y-1 hover:scale-110 hover:bg-[#FF2D20] duration-200"
                                         >
                                             Detail
                                         </Link>
