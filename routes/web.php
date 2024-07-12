@@ -70,6 +70,9 @@ Route::get('/telegram', function () {
 })->middleware('auth')->name('telegram.index');
 
 
+Route::post('/language/{code}', 'LanguageSwitcherController@switch')->name('language.switch');
+
+
 Route::options('{any}', function () {
     return response()->json([], 200);
 })->where('any', '.*');
