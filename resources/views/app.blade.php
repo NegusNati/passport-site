@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', session()->get('locale', substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2)) ?: config('app.locale')) }}">
 
 <head>
     <!-- Google Tag Manager -->

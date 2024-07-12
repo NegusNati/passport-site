@@ -6,6 +6,7 @@ import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import ThemeSelector from "@/Components/ThemeSelector";
 import { Link } from "@inertiajs/react";
 import Footer from "@/Components/Footer";
+import LanguageSwitcher from "@/Components/LanguageSwitcher";
 
 export default function Authenticated({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
@@ -78,6 +79,7 @@ export default function Authenticated({ user, header, children }) {
                                         </Dropdown.Link>
                                     </Dropdown.Content>
                                 </Dropdown>
+                                <LanguageSwitcher />
                             </div>
                         </div>
 

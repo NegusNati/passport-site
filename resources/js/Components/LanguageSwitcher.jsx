@@ -1,24 +1,55 @@
-import { Link } from '@inertiajs/react';
+import React, { useState, useEffect } from 'react';
+import { Link, usePage } from '@inertiajs/react';
 
 const LanguageSwitcher = () => {
+    const { locale } = usePage().props;
+    const [isOpen, setIsOpen] = useState(false);
+    const [currentLanguage, setCurrentLanguage] = useState('English');
+
     const languages = [
         { code: 'en', name: 'English' },
         { code: 'am', name: 'Amharic' },
-        { code: 'om', name: 'Oromiffa' },
+        { code: 'om', name: 'Oromo' },
         { code: 'ti', name: 'Tigrinya' },
     ];
 
-    const currentLanguage = languages.find(
-        (lang) => lang.code === window.navigator.language.substr(0, 2)
-    );
+    useEffect(() => {
+        const savedLocale = localStorage.getItem('locale');
+        if (savedLocale) {
+            const lang = languages.find((lang) => lang.code === savedLocale);
+            if (lang) {
+                setCurrentLanguage(lang.name);
+            }
+        } else {
+            const lang = languages.find((lang) => lang.code === locale);
+            if (lang) {
+                setCurrentLanguage(lang.name);
+            }
+        }
+    }, [locale]);
+
+    const handleLanguageChange = (code) => {
+        localStorage.setItem('locale', code);
+        Inertia.visit(route('home'), {
+          method: 'get',
+          params: { locale: code },
+          preserveState: true,
+          preserveScroll: true,
+        });
+      };
+
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
 
     return (
         <div className="relative inline-block">
             <button
                 type="button"
                 className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150"
+                onClick={toggleDropdown}
             >
-                {currentLanguage ? currentLanguage.name : 'English'}
+                {currentLanguage}
                 <svg
                     className="ml-2 -mr-0.5 h-4 w-4"
                     xmlns="http://www.w3.org/2000/svg"
@@ -32,27 +63,27 @@ const LanguageSwitcher = () => {
                     />
                 </svg>
             </button>
-            <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                <div
-                    className="py-1"
-                    role="menu"
-                    aria-orientation="vertical"
-                    aria-labelledby="options-menu"
-                >
-                    {languages.map((lang) => (
-                        <Link
-                            key={lang.code}
-                            href={route('language.switch', lang.code)}
-                            method="post"
-                            as="button"
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 w-full text-left"
-                            role="menuitem"
-                        >
-                            {lang.name}
-                        </Link>
-                    ))}
+            {isOpen && (
+                <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                    <div
+                        className="py-1"
+                        role="menu"
+                        aria-orientation="vertical"
+                        aria-labelledby="options-menu"
+                    >
+                        {languages.map((lang) => (
+                            <button
+                                key={lang.code}
+                                onClick={() => handleLanguageChange(lang.code)}
+                                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 w-full text-left"
+                                role="menuitem"
+                            >
+                                {lang.name}
+                            </button>
+                        ))}
+                    </div>
                 </div>
-            </div>
+            )}
         </div>
     );
 };

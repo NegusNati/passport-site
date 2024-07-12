@@ -4,6 +4,7 @@ use App\Http\Controllers\PassportSearchController;
 use App\Http\Controllers\PDFToSQLiteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\LanguageSwitcherController;
 use App\Http\Controllers\TelegramPDFController_depreciated;
 
 use Illuminate\Foundation\Application;
@@ -70,14 +71,13 @@ Route::get('/telegram', function () {
 })->middleware('auth')->name('telegram.index');
 
 
-Route::post('/language/{code}', 'LanguageSwitcherController@switch')->name('language.switch');
 
 
 Route::options('{any}', function () {
     return response()->json([], 200);
 })->where('any', '.*');
 
-
+Route::get('/', 'HomeController@index')->name('home')->middleware('locale');
 // The route that the button calls to initialize payment
 Route::get('/payment', function () {
  return Inertia::render('Payment', [
