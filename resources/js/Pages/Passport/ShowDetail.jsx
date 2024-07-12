@@ -94,7 +94,7 @@ function ShowDetail({ auth, passport }) {
                             Request Number :{" "} <strong>{passport.requestNumber}</strong>
                         </p>
                         <p>
-                            You Can Rrecive After :{" "}
+                            You Can Receive After :{" "}
                             <strong className="">
                                 {formatDate(passport.dateOfPublish)} G.C.
                             </strong>

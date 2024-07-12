@@ -54,7 +54,7 @@ export default function Dashboard({ auth }) {
 
                                     <div className="pt-3 sm:pt-5">
                                         <h2 className="text-xl font-semibold text-black dark:text-white">
-                                            Find your Passport for pickup
+                                            Find your Passport
                                         </h2>
 
                                         <p className="mt-4 text-sm/relaxed ">
@@ -111,7 +111,7 @@ export default function Dashboard({ auth }) {
 
                                     <div className="pt-3 sm:pt-5">
                                         <h2 className="text-xl font-semibold text-black dark:text-white capitalize">
-                                            Latest Passports for today
+                                        Passports for today
                                         </h2>
 
                                         <p className="mt-4 text-sm/relaxed ">
