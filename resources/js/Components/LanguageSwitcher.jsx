@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Link, usePage } from '@inertiajs/react';
+import { usePage, useForm } from '@inertiajs/react';
 
 const LanguageSwitcher = () => {
-    const { locale } = usePage().props;
+    const { props } = usePage();
+    const { locale } = props;
     const [isOpen, setIsOpen] = useState(false);
     const [currentLanguage, setCurrentLanguage] = useState('English');
-
+    const { data, setData, post, processing, errors, reset } = useForm({
+        requestNumber: "",
+        firstName: "",
+        middleName: "",
+        lastName: "",
+    });
     const languages = [
         { code: 'en', name: 'English' },
         { code: 'am', name: 'Amharic' },
@@ -24,19 +30,16 @@ const LanguageSwitcher = () => {
             const lang = languages.find((lang) => lang.code === locale);
             if (lang) {
                 setCurrentLanguage(lang.name);
+            } else {
+                setCurrentLanguage('English');
             }
         }
     }, [locale]);
 
     const handleLanguageChange = (code) => {
-        localStorage.setItem('locale', code);
-        Inertia.visit(route('home'), {
-          method: 'get',
-          params: { locale: code },
-          preserveState: true,
-          preserveScroll: true,
-        });
-      };
+        post(route('change-locale'), { locale: code });
+        setIsOpen(false); // Close the dropdown immediately after posting
+    };
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);

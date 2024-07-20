@@ -5,6 +5,7 @@ use App\Http\Controllers\PDFToSQLiteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\LanguageSwitcherController;
+use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\TelegramPDFController_depreciated;
 
 use Illuminate\Foundation\Application;
@@ -77,7 +78,8 @@ Route::options('{any}', function () {
     return response()->json([], 200);
 })->where('any', '.*');
 
-Route::get('/', 'HomeController@index')->name('home')->middleware('locale');
+Route::post('/change-locale', [LocaleController::class, 'changeLocale'])->name('change-locale');
+
 // The route that the button calls to initialize payment
 Route::get('/payment', function () {
  return Inertia::render('Payment', [

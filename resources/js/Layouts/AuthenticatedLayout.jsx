@@ -79,7 +79,7 @@ export default function Authenticated({ user, header, children }) {
                                         </Dropdown.Link>
                                     </Dropdown.Content>
                                 </Dropdown>
-                                <LanguageSwitcher />
+                                {/* <LanguageSwitcher /> */}
                             </div>
                         </div>
 
