@@ -13,9 +13,6 @@ services:
       - passport-site-network
     depends_on:
       - db
-    ports:
-        - "9000:9000"
-        - "5173:5173"
     healthcheck:
       test: ["CMD", "php-fpm", "-t"]
       interval: 10s
@@ -40,12 +37,13 @@ services:
   vite:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.node
     command: npm run dev
     volumes:
       - ./:/var/www
     networks:
       - passport-site-network
+
 
   nginx:
     image: nginx:alpine

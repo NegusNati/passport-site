@@ -19,5 +19,9 @@ class PermissionSeeder extends Seeder
         // Create roles and assign permissions
         $role = Role::create(['name' => 'admin']);
         $role->givePermissionTo('upload-files');
+
+
+        $user = \App\Models\User::find(1);
+        $user->assignRole($role);
     }
 }

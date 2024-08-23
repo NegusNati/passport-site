@@ -48,9 +48,13 @@ class PDFToSQLiteJob implements ShouldQueue
 
 
         try {
-            Log::info("In Dispatch");
+            Log::info("In Dispatch 2   ???");
             $parser = new Parser();
             // $pdf = $parser->parseFile('C:\Users\natna\Documents\genbot_28.pdf');
+            // Log::info($this->filePath);
+            // Log::info($this->date);
+            // Log::info($this->linesToSkip);
+            // Log::info($this->location);
             $pdf = $parser->parseFile($this->filePath);
             Log::info("Got content");
 
@@ -97,7 +101,7 @@ class PDFToSQLiteJob implements ShouldQueue
             if (!$startParsing) {
                 if (strpos($line, $keyword) !== false) {
                     $startParsing = true;
-                    continue; 
+                    continue;
                 }
             } else {
                 // parse the line as data
@@ -159,6 +163,5 @@ class PDFToSQLiteJob implements ShouldQueue
             DB::table('p_d_f_to_s_q_lites')->insertOrIgnore($chunk);
         }
         Log::info("After the insert");
-
     }
 }
