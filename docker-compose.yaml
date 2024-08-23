@@ -1,0 +1,172 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: negusnati/passport-site
+    container_name: passport-site-app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    networks:
+      - passport-site-network
+    depends_on:
+      - db
+    ports:
+        - "9000:9000"
+        - "5173:5173"
+    healthcheck:
+      test: ["CMD", "php-fpm", "-t"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+
+  db:
+    image: mysql:8.0
+    container_name: passport-site-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - passport-site-network
+
+  vite:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: npm run dev
+    volumes:
+      - ./:/var/www
+    networks:
+      - passport-site-network
+
+  nginx:
+    image: nginx:alpine
+    container_name: passport-site-nginx
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/var/www
+      - ./nginx:/etc/nginx/conf.d
+    networks:
+      - passport-site-network
+    depends_on:
+      app:
+        condition: service_healthy
+  queue:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: php artisan queue:work
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www
+    networks:
+      - passport-site-network
+    depends_on:
+      - app
+      - db
+
+networks:
+  passport-site-network:
+    driver: bridge
+
+volumes:
+  dbdata:
+    driver: local
+
+
+
+# services:
+
+#   #PHP Service
+#   app:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     image: passport-site:0.1
+#     container_name: app
+#     restart: unless-stopped
+#     tty: true
+#     environment:
+#       SERVICE_NAME: app
+#       SERVICE_TAGS: dev
+#     working_dir: /var/www
+#     volumes:
+#       - ./:/var/www
+#       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+#     depends_on:
+#       - webserver
+#       - db
+#     networks:
+#       - app-network
+
+#   #Nginx Service
+#   webserver:
+#     image: nginx:alpine
+#     container_name: webserver
+#     restart: unless-stopped
+#     tty: true
+#     ports:
+#       - "8000:80"
+#       - "443:443"
+#     volumes:
+#       - ./:/var/www
+#       - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+#     networks:
+#       - app-network
+
+#   #MySQL Service
+#   db:
+#     image: mysql:9
+#     container_name: db
+#     restart: unless-stopped
+#     tty: true
+#     ports:
+#       - "3307:3306"
+#     environment:
+#       MYSQL_DATABASE: passport
+#       MYSQL_USER: PassportET
+#       MYSQL_PASSWORD: lara-PassportET
+#       MYSQL_ROOT_PASSWORD: lara-PassportET
+#       SERVICE_TAGS: dev
+#       SERVICE_NAME: mysql
+#     volumes:
+#       - dbdata:/var/lib/mysql/
+#       - ./docker/mysql/my.cnf:/etc/mysql/my.cnf
+#     networks:
+#       - app-network
+
+#   # Phpmyadmin Service
+#   phpmyadmin:
+#     image: phpmyadmin/phpmyadmin
+#     container_name: pma
+#     links:
+#       - db
+#     environment:
+#       PMA_HOST: db
+#       MYSQL_ROOT_PASSWORD: lara-PassportET
+#       PMA_PORT: 3306
+#     restart: always
+#     ports:
+#       - 8001:80
+#     networks:
+#       - app-network
+
+# #Docker Networks
+# networks:
+#   app-network:
+#     driver: bridge
+
+# #Volumes
+# volumes:
+#   dbdata:
+#     driver: local
