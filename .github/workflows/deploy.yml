@@ -31,6 +31,14 @@ jobs:
       - name: Build NPM Assets
         run: npm run build
 
+      - name: Check SSH Connection
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: echo "SSH connection successful"
+
       - name: Synchronize Files To Server using SSH
         uses: easingthemes/ssh-deploy@main
         env:
