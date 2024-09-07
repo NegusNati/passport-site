@@ -71,5 +71,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /var/www/html/passport-et
-            php artisan migrate --force
-            php artisan optimize
+            /usr/bin/php artisan migrate --force
+            /usr/bin/php artisan optimize
