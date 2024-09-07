@@ -45,13 +45,14 @@ jobs:
           echo "User: ${{ secrets.VPS_USER }}"
 
       - name: Synchronize Files To Server
-        uses: easingthemes/ssh-deploy@v2.1.5
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SOURCE: "."
-          REMOTE_HOST: ${{ secrets.VPS_HOST }}
-          REMOTE_USER: ${{ secrets.VPS_USER }}
-          TARGET: "/var/www/html/passport-et"
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "."
+          target: "/var/www/html/passport-et"
+          rm: false
 
       - name: Run Remote/Artisan Commands
         uses: appleboy/ssh-action@v0.1.6
