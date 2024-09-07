@@ -17,7 +17,7 @@ jobs:
       with:
         php-version: 8.2
 
-    - name: Install Composer Dependencies o
+    - name: Install Composer Dependencies
       run: composer install --optimize-autoloader --no-dev --no-progress --no-interaction --prefer-dist
 
     - name: Install Node
@@ -31,24 +31,10 @@ jobs:
     - name: Build NPM Assets
       run: npm run build
 
-    - name: Install SSH Key
-      uses: shimataro/ssh-key-action@v2
-      with:
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-    - name: Check SSH connection
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.VPS_HOST }}
-        username: ${{ secrets.VPS_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: echo "SSH connection successful"
-
     - name: Synchronize Files To Server
-      uses: easingthemes/ssh-deploy@main
+      uses: easingthemes/ssh-deploy@v2.1.5
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        ARGS: "-rltgoDzvO --delete"
         SOURCE: "."
         REMOTE_HOST: ${{ secrets.VPS_HOST }}
         REMOTE_USER: ${{ secrets.VPS_USER }}
