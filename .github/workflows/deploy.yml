@@ -46,7 +46,7 @@ jobs:
           REMOTE_HOST: ${{ secrets.VPS_HOST }}
           REMOTE_USER: ${{ secrets.VPS_USER }}
           SOURCE: "."
-          TARGET: "/var/www/html/passport.et"
+          TARGET: "/var/www/html/passport"
 
       - name: Run Remote/Artisan Commands
         uses: appleboy/ssh-action@v0.1.6
@@ -55,6 +55,6 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /var/www/html/passport.et
+            cd /var/www/html/passport
             php artisan migrate --force
             php artisan optimize
