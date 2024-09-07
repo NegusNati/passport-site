@@ -44,7 +44,7 @@ jobs:
           echo "Host: ${{ secrets.VPS_HOST }}"
           echo "User: ${{ secrets.VPS_USER }}"
 
-      - name: Prepare Remote Server
+      - name: Prepare Remote Server after root
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.VPS_HOST }}
