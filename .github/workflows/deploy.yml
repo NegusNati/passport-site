@@ -39,6 +39,11 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: echo "SSH connection successful"
 
+      - name: Debug Secrets
+        run: |
+          echo "Host: ${{ secrets.VPS_HOST }}"
+          echo "User: ${{ secrets.VPS_USER }}"
+
       - name: Synchronize Files To Server
         uses: easingthemes/ssh-deploy@v2.1.5
         env:
